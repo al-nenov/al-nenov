@@ -1,0 +1,154 @@
+[
+    {
+        "id" : 1,
+        "image" : "beanie-2.jpg",
+        "price" : 25,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "red",
+        "categories" : ["clothing", "hats"]
+    },
+    {
+        "id" : 2,
+        "image" : "beanie-with-logo-1.jpg",
+        "price" : 25,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["clothing", "hats"]
+    },
+    {
+        "id" : 3,
+        "image" : "belt-2.jpg",
+        "price" : 59,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "brown",
+        "categories" : ["clothing", "accessories"]
+    },
+    {
+        "id" : 4,
+        "image" : "cap-2.jpg",
+        "price" : 56,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "yellow",
+        "categories" : ["clothing", "hats"]
+    },
+    {
+        "id" : 5,
+        "image" : "hoodie-2.jpg",
+        "price" : 86,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "red",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 6,
+        "image" : "hoodie-blue-1.jpg",
+        "price" : 86,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 7,
+        "image" : "hoodie-green-1.jpg",
+        "price" : 86,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "green",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 8,
+        "image" : "hoodie-with-logo-2.jpg",
+        "price" : 96,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 9,
+        "image" : "hoodie-with-pocket-2.jpg",
+        "price" : 106,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "grey",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 10,
+        "image" : "hoodie-with-zipper-2.jpg",
+        "price" : 126,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "green",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 11,
+        "image" : "long-sleeve-tee-2.jpg",
+        "price" : 76,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "green",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 12,
+        "image" : "pennant-1.jpg",
+        "price" : 35,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["accessories"]
+    },
+    {
+        "id" : 13,
+        "image" : "polo-2.jpg",
+        "price" : 79,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 14,
+        "image" : "sunglasses-2.jpg",
+        "price" : 186,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "black",
+        "categories" : ["accessories"]
+    },
+    {
+        "id" : 15,
+        "image" : "tshirt-2.jpg",
+        "price" : 35,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "white",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 16,
+        "image" : "t-shirt-with-logo-1.jpg",
+        "price" : 40,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "green",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 17,
+        "image" : "vnech-tee-blue-1.jpg",
+        "price" : 50,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "blue",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 18,
+        "image" : "vnech-tee-green-1.jpg",
+        "price" : 50,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "green",
+        "categories" : ["clothing", "tops"]
+    },
+    {
+        "id" : 19,
+        "image" : "vneck-tee-2.jpg",
+        "price" : 86,
+        "description" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+        "color" : "red",
+        "categories" : ["clothing", "tops"]
+    }
+]
