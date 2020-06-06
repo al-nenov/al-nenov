@@ -1,8 +1,20 @@
 import React from 'react';
 import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {logOut} from '../redux/userReducer';
+import {logout} from '../services/userService';
 
 
-function Header() {
+function Header(props) {
+    function handleClick() {
+        if(logout) {
+            props.logOut()
+        }
+    }
+
+    const log_Out = <Nav.Link onClick={() =>handleClick()}>Log Out</Nav.Link>;
+    const log_In = <Nav.Link href="/login">Login</Nav.Link>;
+
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand>
@@ -19,4 +31,11 @@ function Header() {
         </Navbar>
     )
 }
-export default Header;
+
+function mapStateToProps(globalState) {
+    return {
+        auth: globalState.userAuth
+    }
+}
+
+export default connect(mapStateToProps, {logOut})(Header);

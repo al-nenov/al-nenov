@@ -1,11 +1,22 @@
 import {createStore, combineReducers} from 'redux';
-import productsReducer from './productsReducer'
-
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import productsReducer from './productsReducer';
+import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
-    products: productsReducer
+    products: productsReducer,
+    userAuth: userReducer
 })
 
-const store = createStore(rootReducer);
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['userAuth']
+}
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+const store = createStore(persistedReducer);
+const persistor = persistStore(store);
+
+export {store, persistor}
