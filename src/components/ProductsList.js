@@ -22,7 +22,7 @@ function ProductsList(props) {
 }
 function mapStateToProps(globalState) {
     return {
-        allProducts: globalState.products
+        allProducts: globalState.products.allProducts
     }
 }
 

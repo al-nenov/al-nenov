@@ -8,7 +8,7 @@ import {logout} from '../services/userService';
 function Header(props) {
     function handleClick() {
         if(logout) {
-            props.logOut()
+            props.logout()
         }
     }
 
@@ -22,12 +22,12 @@ function Header(props) {
             </Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+               
             </Nav>
-            <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-info">Search</Button>
-            </Form>
+            <Navbar.Collapse className="justify-content-end">
+                {props.auth.loggedIn && log_Out}
+                {props.auth.loggedIn ? <Navbar.Text>Signed in as: {props.auth.user}</Navbar.Text> : log_In}
+            </Navbar.Collapse>
         </Navbar>
     )
 }
@@ -38,4 +38,8 @@ function mapStateToProps(globalState) {
     }
 }
 
-export default connect(mapStateToProps, {logOut})(Header);
+const mapDispatchToProps = {
+    logout: logOut
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
