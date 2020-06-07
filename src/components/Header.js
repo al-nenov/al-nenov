@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {logOut} from '../redux/userReducer';
 import {user} from '../services/userService';
 
-
 function Header(props) {
     function handleClick() {
         user.LOGOUT()
@@ -27,10 +26,10 @@ function Header(props) {
                 <Nav.Link href="/">Home</Nav.Link>
             </Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link href="/about">About</Nav.Link>
-               
+                <Nav.Link href="/about">About</Nav.Link>               
             </Nav>
             <Navbar.Collapse className="justify-content-end">
+                <Nav.Link href="/cart">Cart {props.cartItems.length > 0 && props.cartItems.length}</Nav.Link>
                 {props.auth.loggedIn && log_Out}
                 {props.auth.loggedIn ? <Navbar.Text>Signed in as: {props.auth.user}</Navbar.Text> : log_In}
             </Navbar.Collapse>
@@ -40,7 +39,8 @@ function Header(props) {
 
 function mapStateToProps(globalState) {
     return {
-        auth: globalState.userAuth
+        auth: globalState.userAuth,
+        cartItems : globalState.cart
     }
 }
 

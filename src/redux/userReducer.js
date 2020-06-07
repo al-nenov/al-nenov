@@ -3,20 +3,20 @@ const initialState =  {
     user: localStorage.user ? JSON.parse(localStorage.user) : {}
 };
 
-export function loginUser(user) {
+function loginUser(user) {
     return {
         type: "LOG_IN_USER",
         payload: user
     }
 }
 
-export function logOut() {
+function logOut() {
     return {
         type: "LOG_OUT"
     }
 }
 
-export function registerUser(user) {
+function registerUser(user) {
     return {
         type: "REGISTER_USER",
         payload: user
@@ -41,4 +41,4 @@ const userReducer = (state = initialState, action) => {
     
 }
 
-export default userReducer;
+export {loginUser, logOut, registerUser, userReducer};

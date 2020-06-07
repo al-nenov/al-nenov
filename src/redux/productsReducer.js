@@ -5,13 +5,13 @@ const initalState = {
     product: {}
 }
 
-export function addProduct(product) {
+function addProduct(product) {
     return {
         type: "ADD_PRODUCT",
         payload: product
     }
 }
- export function returnProduct(id) {
+ function returnProduct(id) {
      return {
          type: "GET_PRODUCT_BY_ID",
          payload: id
@@ -29,4 +29,4 @@ const productsReducer = (state = initalState, action) => {
 
 
 
-export default productsReducer;
+export {addProduct, returnProduct, productsReducer};

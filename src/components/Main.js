@@ -5,6 +5,7 @@ import ProductsList from './ProductsList';
 import ProductPage from './ProductPage';
 import Login from './Login';
 import Signup from './Signup';
+import Cart from './Cart';
 
 
 function Main(props) {
@@ -18,6 +19,7 @@ function Main(props) {
                 <h2>{props.user}</h2>
             </Route>
             <Route path="/product/:id" component={ProductPage} />
+            <Route path="/cart" component={Cart} />
             <Route path="/login" component={props.loggedIn ? ProductsList : Login } />
             <Route path="/signup" component={props.loggedIn ? ProductsList : Signup } />
         </Switch>
