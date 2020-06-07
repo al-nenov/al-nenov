@@ -1,4 +1,7 @@
+import {toast} from 'react-toastify';
+
 let userlist = localStorage.users ? JSON.parse(localStorage.users) : [];
+
 
 export const user = {
     'LOGIN': login,
@@ -8,6 +11,7 @@ export const user = {
 
 
 async function login(username, password) {
+    let response = {};
     try {
         if(!userExist(username)) {
             throw new Error('User not Found')
@@ -18,40 +22,48 @@ async function login(username, password) {
         }
         
     } catch(err) {
-        return {
+        response = {
             status: 'Failed',
             message: err.message
         }
+        return response;
     }
 
     const user = userlist.find(user => user.username.toLowerCase() === username.toLowerCase());
     localStorage.user = JSON.stringify(user);
 
-    return {
+    response = {
         status: 'Success',
         message: 'User logged in',
         user
-    };
+    }
+    toast(`Welcome, ${username}!`)
+    return response;
 
 }
 
 
 async function logout() {
     localStorage.removeItem('user');
+    let response = {};
     try {
         if (localStorage.user) {
             throw new Error ('Failed to log out')
         }
     } catch(err) {
-        return {
+        response = {
             status: 'Failed',
             message: err.message
         }
+        return response;
     }
-    return {
+
+    response = {
         status: 'Success',
         message:'User logged out'
     }
+    toast(response.message);
+    return response;
 }
 
 
