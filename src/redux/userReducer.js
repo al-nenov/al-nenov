@@ -1,6 +1,6 @@
 const initialState =  {
-    loggedIn: false,
-    user: {}
+    loggedIn: !!localStorage.user,
+    user: localStorage.user ? JSON.parse(localStorage.user) : {}
 };
 
 export function loginUser(user) {
@@ -26,7 +26,6 @@ export function registerUser(user) {
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case "LOG_IN_USER":
-            console.log(state)
             return {
                 loggedIn: true,
                 user: action.payload

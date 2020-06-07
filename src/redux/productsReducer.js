@@ -21,15 +21,7 @@ export function addProduct(product) {
 
 const productsReducer = (state = initalState, action) => {
     switch (action.type) {
-        case "ADD_PRODUCT": 
-            return [...state, action.payload]  
-        case "GET_PRODUCT_BY_ID":
-            const filteredProduct = state.allProducts.filter((product) => product.id == action.payload)
-            console.log(filteredProduct)
-            return {
-                 ...state,
-                 product: {"trtr": 12}
-            }
+
         default:
             return state;    
     }

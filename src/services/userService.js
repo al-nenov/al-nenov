@@ -1,14 +1,13 @@
-let userlist = '';
+let userlist = localStorage.users ? JSON.parse(localStorage.users) : [];
 
-
-export function setUserStorage() {
-    if (!localStorage.users) {
-        localStorage.users = '[]';
-    }
-    userlist = JSON.parse(localStorage.users);  
+export const user = {
+    'LOGIN': login,
+    'LOGOUT': logout,
+    'REGISTER': registerUser
 }
 
-export async function login(username, password) {
+
+async function login(username, password) {
     try {
         if(!userExist(username)) {
             throw new Error('User not Found')
@@ -28,52 +27,65 @@ export async function login(username, password) {
     const user = userlist.find(user => user.username.toLowerCase() === username.toLowerCase());
     localStorage.user = JSON.stringify(user);
 
-    return user;
+    return {
+        status: 'Success',
+        message: 'User logged in',
+        user
+    };
 
 }
 
 
-export function logout() {
+async function logout() {
     localStorage.removeItem('user');
-    if (!localStorage.user) {
-        return 'User logged out';
+    try {
+        if (localStorage.user) {
+            throw new Error ('Failed to log out')
+        }
+    } catch(err) {
+        return {
+            status: 'Failed',
+            message: err.message
+        }
     }
-
-}
-
-function getAll() {
-
-}
-
-function getById(id) {
-
-}
-
-export function registerUser(username, password) {
-    if (userExist(username)) {
-        return "Username taken"
+    return {
+        status: 'Success',
+        message:'User logged out'
     }
-    userlist.push({
+}
+
+
+async function registerUser(username, password) {
+    try {
+        if (userExist(username)) {
+            throw new Error("Username taken")
+        }
+    } catch(err) {
+        return {
+            status: 'Failed',
+            message: err.message
+        }
+    }
+    const user = {
         'id': userlist.length,
         'username' : (username).toString(),
         'password' : (password).toString()
-    })
+    }
+    userlist.push(user)
     localStorage.users = JSON.stringify(userlist);
-
-    return true;
-}
-
-function deleteUser() {
-
+    return {
+        status:'Success',
+        message: 'User created',
+        user
+    }
 }
 
 function userExist(username) {
-    console.log(userlist)
-    return userlist.some(user => user.username.toLowerCase() === username.toLowerCase())
+    const _username = username.toString().toLowerCase();
+    return userlist.some(user => user.username.toLowerCase() === _username)
 }
 
 function passwordCheck(username, password) {
-    console.log(userlist)
     const user = userlist.find(user => user.username.toLowerCase() === username.toLowerCase());
     return user.password === (password).toString();
 }

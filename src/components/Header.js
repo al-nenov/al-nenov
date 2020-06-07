@@ -1,16 +1,22 @@
 import React from 'react';
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {logOut} from '../redux/userReducer';
-import {logout} from '../services/userService';
+import {user} from '../services/userService';
 
 
 function Header(props) {
     function handleClick() {
-        if(logout) {
-            props.logout()
-        }
+        user.LOGOUT()
+            .then((res) => {
+                if (res.status === 'Success') {
+                    props.logout()
+                } else {
+                    console.error(res.message)
+                }
+            })
     }
+    
 
     const log_Out = <Nav.Link onClick={() =>handleClick()}>Log Out</Nav.Link>;
     const log_In = <Nav.Link href="/login">Login</Nav.Link>;

@@ -5,13 +5,14 @@ import {loginUser} from '../redux/userReducer';
 import {connect} from 'react-redux';
 
 
-function Login(props) {
+function Signup(props) {
 
-    const login_user = (username, password, setError) => {
-        user.LOGIN(username, password)
+    const signup_user = (username, password, setError) => {
+        user.REGISTER(username, password)
             .then(
                 (res) => {
                     if (res.status === 'Success') {
+                        user.LOGIN(res.user.username, res.user.password)
                         props.dispatch(loginUser(res.user.username, res.user.password))
                     } else {
                         setError('login', 'failed', res.message)
@@ -22,14 +23,13 @@ function Login(props) {
 
 
     return (
-        <>  
-            <h3>Log In to your account</h3>
-            <LoginForm action={login_user} />
-            <a href="/signup">Don't have an account? Signup here</a>
+        <>
+            <h3>Create new account</h3>
+            <LoginForm action={signup_user} />
         </>
     )
 }
 
 
 
-export default connect()(Login);
+export default connect()(Signup);

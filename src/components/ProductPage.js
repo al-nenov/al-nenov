@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {Card, Button, Col} from 'react-bootstrap';
+import {Card, Button} from 'react-bootstrap';
 
 function ProductPage(props) {
     const productId = parseInt(props.match.params.id);

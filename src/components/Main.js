@@ -1,10 +1,10 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import PrivateRoute from './PrivateRoute';
 import ProductsList from './ProductsList';
 import ProductPage from './ProductPage';
 import Login from './Login';
+import Signup from './Signup';
 
 
 function Main(props) {
@@ -19,6 +19,7 @@ function Main(props) {
             </Route>
             <Route path="/product/:id" component={ProductPage} />
             <Route path="/login" component={props.loggedIn ? ProductsList : Login } />
+            <Route path="/signup" component={props.loggedIn ? ProductsList : Signup } />
         </Switch>
     )
 }
