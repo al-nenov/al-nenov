@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import ProductsList from './ProductsList';
 import ProductPage from './ProductPage';
@@ -20,8 +20,12 @@ function Main(props) {
             </Route>
             <Route path="/product/:id" component={ProductPage} />
             <Route path="/cart" component={Cart} />
-            <Route path="/login" component={props.loggedIn ? ProductsList : Login } />
-            <Route path="/signup" component={props.loggedIn ? ProductsList : Signup } />
+            <Route path="/login" component={Login}>
+                {props.loggedIn && <Redirect to="/" />}
+            </Route>
+            <Route path="/signup" component={Signup }>
+                {props.loggedIn && <Redirect to="/" />}
+            </Route>
         </Switch>
     )
 }
