@@ -1,25 +1,62 @@
+import {user} from '../services/userService';
+
 const initialState =  {
     loggedIn: !!localStorage.user,
     user: localStorage.user ? JSON.parse(localStorage.user) : {}
 };
 
-function loginUser(user) {
-    return {
-        type: "LOG_IN_USER",
-        payload: user
+function loginUser(username, password, setError) {
+    return (dispatch) => {
+        user.LOGIN(username, password)
+            .then(
+                (res) => {
+                    if (res.status === 'Success') {
+                        dispatch({
+                            type: "LOG_IN_USER",
+                            payload: res.user.username
+                        })
+                    } else {
+                        setError('login', 'failed', res.message)
+                    }
+                }
+            )
     }
 }
 
 function logOut() {
-    return {
-        type: "LOG_OUT"
-    }
+    return (dispatch) => {
+        user.LOGOUT()
+        .then((res) => {
+            if (res.status === 'Success') {
+                dispatch({
+                    type: "LOG_OUT"
+                })
+            } else {
+                console.error(res.message)
+            }
+        })
+    }    
 }
 
-function registerUser(user) {
-    return {
-        type: "REGISTER_USER",
-        payload: user
+function registerUser(username, password, setError) {
+    return (dispatch) => {
+        user.REGISTER(username, password)
+            .then(
+                (res) => {
+                    if (res.status === 'Success') {
+                        dispatch({
+                            type: "REGISTER_USER",
+                            payload: res.user
+                        })
+                        dispatch({
+                            type: "LOG_IN_USER",
+                            payload: res.user.username
+                        })
+                    } else {
+                        setError('login', 'failed', res.message)
+                    }
+                }
+            )
     }
 }
 

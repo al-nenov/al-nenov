@@ -1,25 +1,13 @@
 import React from 'react';
 import LoginForm from './forms/LoginForm';
-import {user} from '../services/userService';
 import {loginUser} from '../redux/userReducer';
-import {connect} from 'react-redux';
-
+import {useDispatch} from 'react-redux';
 
 function Login(props) {
-
+    const dispatch = useDispatch()
     const login_user = (username, password, setError) => {
-        user.LOGIN(username, password)
-            .then(
-                (res) => {
-                    if (res.status === 'Success') {
-                        props.dispatch(loginUser(res.user.username, res.user.password))
-                    } else {
-                        setError('login', 'failed', res.message)
-                    }
-                }
-            )
+        dispatch(loginUser(username, password, setError))
     };
-
 
     return (
         <>  
@@ -32,4 +20,4 @@ function Login(props) {
 
 
 
-export default connect()(Login);
+export default Login;

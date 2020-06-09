@@ -1,19 +1,15 @@
 import React from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {logOut} from '../redux/userReducer';
-import {user} from '../services/userService';
 
 function Header(props) {
+    const cartItems = useSelector(state => state.cart);
+    const auth = useSelector(state => state.userAuth);
+    const dispatch = useDispatch();
+
     function handleClick() {
-        user.LOGOUT()
-            .then((res) => {
-                if (res.status === 'Success') {
-                    props.logout()
-                } else {
-                    console.error(res.message)
-                }
-            })
+        dispatch(logOut())
     }
     
 
@@ -29,23 +25,12 @@ function Header(props) {
                 <Nav.Link href="/about">About</Nav.Link>               
             </Nav>
             <Navbar.Collapse className="justify-content-end">
-                <Nav.Link href="/cart">Cart {props.cartItems.length > 0 && props.cartItems.length}</Nav.Link>
-                {props.auth.loggedIn && log_Out}
-                {props.auth.loggedIn ? <Navbar.Text>Signed in as: {props.auth.user}</Navbar.Text> : log_In}
+                <Nav.Link href="/cart">Cart {cartItems.length > 0 && cartItems.length}</Nav.Link>
+                {auth.loggedIn && log_Out}
+                {auth.loggedIn ? <Navbar.Text>Signed in as: {auth.user}</Navbar.Text> : log_In}
             </Navbar.Collapse>
         </Navbar>
     )
 }
 
-function mapStateToProps(globalState) {
-    return {
-        auth: globalState.userAuth,
-        cartItems : globalState.cart
-    }
-}
-
-const mapDispatchToProps = {
-    logout: logOut
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
