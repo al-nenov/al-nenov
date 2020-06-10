@@ -1,4 +1,4 @@
-import {user} from '../services/userService';
+import {USER} from '../services/userService';
 
 const initialState =  {
     loggedIn: !!localStorage.user,
@@ -7,7 +7,7 @@ const initialState =  {
 
 function loginUser(username, password, setError) {
     return (dispatch) => {
-        user.LOGIN(username, password)
+        USER.LOGIN(username, password)
             .then(
                 (res) => {
                     if (res.status === 'Success') {
@@ -25,7 +25,7 @@ function loginUser(username, password, setError) {
 
 function logOut() {
     return (dispatch) => {
-        user.LOGOUT()
+        USER.LOGOUT()
         .then((res) => {
             if (res.status === 'Success') {
                 dispatch({
@@ -40,7 +40,7 @@ function logOut() {
 
 function registerUser(username, password, setError) {
     return (dispatch) => {
-        user.REGISTER(username, password)
+        USER.REGISTER(username, password)
             .then(
                 (res) => {
                     if (res.status === 'Success') {
@@ -48,10 +48,14 @@ function registerUser(username, password, setError) {
                             type: "REGISTER_USER",
                             payload: res.user
                         })
-                        dispatch({
-                            type: "LOG_IN_USER",
-                            payload: res.user.username
+                        USER.LOGIN(username, password)
+                            .then((res) =>{
+                                dispatch({
+                                type: "LOG_IN_USER",
+                                payload: res.user.username
                         })
+                            })
+                        
                     } else {
                         setError('login', 'failed', res.message)
                     }

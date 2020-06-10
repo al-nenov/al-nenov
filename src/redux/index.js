@@ -5,17 +5,19 @@ import thunk from 'redux-thunk';
 import {productsReducer} from './productsReducer';
 import {userReducer} from './userReducer';
 import {cartReducer} from './cartReducer';
+import {favoritesReducer} from './favoritesReducer';
 
 const rootReducer = combineReducers({
     products: productsReducer,
     userAuth: userReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    favorites: favoritesReducer
 })
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['userAuth', 'cart']
+    whitelist: ['userAuth', 'cart', 'favorites']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

@@ -3,10 +3,12 @@ import {toast} from 'react-toastify';
 let userlist = localStorage.users ? JSON.parse(localStorage.users) : [];
 
 
-export const user = {
+export const USER = {
     'LOGIN': login,
     'LOGOUT': logout,
-    'REGISTER': registerUser
+    'REGISTER': registerUser,
+    'RETURN_FAVORITES': returnFavorites,
+    'TOGGLE_FAVORITE': toggleFavorite,
 }
 
 
@@ -81,7 +83,9 @@ async function registerUser(username, password) {
     const user = {
         'id': userlist.length,
         'username' : (username).toString(),
-        'password' : (password).toString()
+        'password' : (password).toString(),
+        'favorites' : [],
+        'user_cart' : []
     }
     userlist.push(user)
     localStorage.users = JSON.stringify(userlist);
@@ -90,6 +94,33 @@ async function registerUser(username, password) {
         message: 'User created',
         user
     }
+}
+async function returnFavorites() {
+    if (!localStorage.user) {
+        return "No user"
+    } else {
+        const user = JSON.parse(localStorage.user);
+        return user.favorites;
+    }
+}
+async function toggleFavorite(productId) {
+    const user = JSON.parse(localStorage.user);
+    const isInFavorites = user.favorites.some((item) => item === productId);
+    if (isInFavorites) {
+        const item = user.favorites.indexOf(productId)
+        user.favorites.splice(item, 1)
+    } else {
+        user.favorites.push(productId);
+    }
+    localStorage.user = JSON.stringify(user);
+    updateUserList(user)
+    return user.favorites;   
+}
+
+function updateUserList(user) {    
+    const userToUpdate = userlist.findIndex(_user => _user.id === user.id);
+    userlist[userToUpdate] = user;
+    localStorage.users = JSON.stringify(userlist);
 }
 
 function userExist(username) {
