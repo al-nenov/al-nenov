@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import ProductsList from './ProductsList';
-import ProductPage from './ProductPage';
+import ProductsList from './product/ProductsList';
+import ProductPage from './product/ProductPage';
 import Login from './Login';
 import Signup from './Signup';
 import Cart from './Cart';

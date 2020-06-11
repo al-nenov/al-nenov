@@ -13,8 +13,8 @@ function ProductsList(props) {
     })
 
     return (
-        <Container>
-            <Row className="justify-content-center">
+        <Container className="py-5">
+            <Row className="justify-content-center products">
                 { products }
             </Row>
         </Container>

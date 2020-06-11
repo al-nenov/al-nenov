@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {removeFromCart, emptyCart} from '../redux/cartReducer';
+import ProductPrice from './product/ProductPrice';
+import {Container, Table, Figure, NavLink, Button} from 'react-bootstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 function Cart(props) {
@@ -14,24 +17,47 @@ function Cart(props) {
     }
 
     const cartItems = props.cart.map(item => {
+        const productItem = 
+        <a href={`product/${item.id}`}>
+            <Figure className="mx-2">
+                <Figure.Image
+                    width={50}
+                    src={'/images/products/' + item.image}
+                    fluid={true}
+                />
+            </Figure>
+            {item.title}
+        </a>
         return (
-            <div key={item.id}>
-                <a className="card"  href={`product/${item.id}`}> 
-                    id: {item.id} <br />
-                    qty: {item.qty} <br />
-                    price: {item.price}
-                </a>
-                <span onClick={() => handleClick(item.id)}>Remove from cart</span>
-            </div>
+            <tr key={item.id}>
+                <td><NavLink onClick={() => handleClick(item.id)}><FontAwesomeIcon icon="times"/></NavLink></td>
+                <td>{item.id}</td>
+                <td>{productItem}</td>
+                <td><ProductPrice price={item.price} /></td>
+                <td>{item.qty}</td>
+                <td><ProductPrice price={item.price * item.qty} /></td>
+            </tr>
         )
     });
     
     return (
-            <div className="cartPage">
-                Cart page
-                {cartItems}
-                {cartItems.length > 0 && <p onClick={handleEmptyCart}>Empty cart</p>}
-            </div>
+            <Container className="cartPage">
+                <h3 className="py-3">Cart page</h3>
+                <Table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>id</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                        </tr>
+                        {cartItems}
+                    </thead>
+                </Table>
+                {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}
+            </Container>
     )
 }
 function mapStateToProps(globalState) {
