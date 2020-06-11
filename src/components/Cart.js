@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {removeFromCart, emptyCart} from '../redux/cartReducer';
 import ProductPrice from './product/ProductPrice';
-import {Container, Table, Figure, NavLink, Button} from 'react-bootstrap';
+import CartTotals from './CartTotals';
+import {Container, Table, Figure, NavLink, Button, Row, Col} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 function Cart(props) {
+    const [cartTotal, setCartTotal] = useState(0);
+    
+    useEffect(() => {
+        let total = 0
+        props.cart.map((item) => {
+            total += item.price * item.qty
+        })
+        setCartTotal(total)
+    }, [props.cart])
 
     function handleClick(id) {
         props.removeFromCart(id)
@@ -56,7 +66,14 @@ function Cart(props) {
                         {cartItems}
                     </thead>
                 </Table>
-                {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}
+                <Row>
+                    <Col>
+                        {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}                    
+                    </Col>
+                    <Col>
+                        <CartTotals total={cartTotal} />                    
+                    </Col>
+                </Row>
             </Container>
     )
 }
