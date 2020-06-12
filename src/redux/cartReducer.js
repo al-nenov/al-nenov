@@ -23,7 +23,7 @@ function emptyCart() {
 const cartReducer = function(state = cart, action) {
     switch (action.type) {
         case "ADD_PRODUCT_TO_CART": {
-            let product = action.payload;
+            let product = {...action.payload};
             const cartItems = [...state];
             const existingItem = cartItems.find(item => item.id === product.id)
 

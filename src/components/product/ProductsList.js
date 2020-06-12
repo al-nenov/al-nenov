@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {Container,Row} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
 import Product from './Product';
@@ -13,11 +13,9 @@ function ProductsList(props) {
     })
 
     return (
-        <Container>
-            <Row className="justify-content-center">
-                { products }
-            </Row>
-        </Container>
+        <Row className="justify-content-center products">
+            { products }
+        </Row>
     )
 }
 function mapStateToProps(globalState) {
