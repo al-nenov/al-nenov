@@ -12,7 +12,7 @@ function Cart(props) {
     
     useEffect(() => {
         let total = 0
-        props.cart.map((item) => {
+        props.cart.forEach(item => {
             total += item.price * item.qty
         })
         setCartTotal(total)

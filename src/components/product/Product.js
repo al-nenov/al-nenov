@@ -3,16 +3,17 @@ import {Card, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import AddToCart from '../AddToCart';
 import ProductPrice from './ProductPrice';
+import AddToFavorites from '../AddToFavorites';
  
 function Product(props) {
     return (
         <Col md={4} sm={'auto'} className="product mb-5">
             <Card>
+                {props.loggedIn && <AddToFavorites product={props.id}/> }
                 <a href={`product/${props.id}`}>
                     <Card.Img variant="top" src={'/images/products/' + props.image} />
                     <Card.Body>
                         <Card.Title>{props.title}</Card.Title>
-                        {props.loggedIn && <p>Add to favorite</p>}
                         <Card.Text>
                             Color: {props.color}
                         </Card.Text>

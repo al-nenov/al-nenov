@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import ProductsList from './product/ProductsList';
 import ProductPage from './product/ProductPage';
 import Login from './Login';
@@ -10,6 +10,8 @@ import {Container} from 'react-bootstrap';
 
 
 function Main(props) {
+    const user = useSelector(state => state.userAuth);
+    const loggedIn = user.loggedIn;
     return (
         <Container className="p-4">
             <Switch>
@@ -23,19 +25,14 @@ function Main(props) {
                 <Route path="/product/:id" component={ProductPage} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/login" component={Login}>
-                    {props.loggedIn && <Redirect to="/" />}
+                    {loggedIn && <Redirect to="/" />}
                 </Route>
                 <Route path="/signup" component={Signup }>
-                    {props.loggedIn && <Redirect to="/" />}
+                    {loggedIn && <Redirect to="/" />}
                 </Route>
             </Switch>
         </Container>
     )
 }
 
-function mapStateToProps(globalState) {
-    return {
-        loggedIn: globalState.userAuth.loggedIn
-    }
-}
-export default connect(mapStateToProps, {})(Main);
+export default Main;

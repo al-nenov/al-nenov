@@ -1,36 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import useHover from '../hooks/useHover';
-import {toggleFavorite, setFavorites} from '../redux/favoritesReducer';
+import useFavorites from '../hooks/useFavorites';
+import {toggleFavorite} from '../redux/favoritesReducer';
 
 function AddToFavorites(props) {
-    const favorites = useSelector(state => state.favorites);
-
-    const [isFavorited, setFavorited] = useState(false)
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(setFavorites([1,2]))
-        return function() {
-
-            favorites.some((item) => item === props.product) ? setFavorited(true) : setFavorited(false)
-        }
-    })
-    
     const [hovered, ref] = useHover();
-    const favIcon = isFavorited || hovered ? ['fas', 'heart'] : ['far', 'heart']
+    const [favorites] = useFavorites(props.product);
+    const favorited = (favorites.some((id) => id === props.product))
 
+    const favIcon = hovered || favorited ? ['fas', 'heart'] : ['far', 'heart']
+    
     function handleClick(id) {
         dispatch(toggleFavorite(id))
     }
 
+
     return (
-        <span ref={ref}>
+        <span ref={ref} className="favorites-icon">
             <FontAwesomeIcon
-                onClick={() => handleClick(props.product)}
-                icon={favIcon} 
-                size="2x" 
-                style={{color:'red'}}/>
+                onClick ={() => handleClick(props.product)}
+                icon = {favIcon} 
+                size= "2x" 
+                style = {{color:'red'}}/>
         </span>
     )
 }

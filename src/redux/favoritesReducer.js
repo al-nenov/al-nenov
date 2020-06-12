@@ -1,8 +1,6 @@
 import {USER} from '../services/userService';
 
-let favorites = []
-
-
+let favorites = [];
 
 function toggleFavorite(product_id) {
     return (dispatch) => {
@@ -15,10 +13,21 @@ function toggleFavorite(product_id) {
             })
     }
 }
+
 function setFavorites(favorites_list) {
     return {
         type: 'SET_FAVORITES',
         payload: favorites_list
+    }
+}
+
+function getFavorites() {
+    return (dispatch) => {
+        const usersFavorites = localStorage.user ? JSON.parse(localStorage.user).favorites : [];
+        dispatch({
+            type: 'GET_FAVORITES',
+            payload: usersFavorites
+        })
     }
 }
 
@@ -27,9 +36,11 @@ const favoritesReducer = function(state = favorites, action) {
         case 'TOGLE_FAVORITE' :
             return action.payload
         case 'SET_FAVORITES' : 
-            return action.payload  
+            return action.payload
+        case 'GET_FAVORITES' :
+            return action.payload
         default: return state
     }
 }
 
-export {toggleFavorite, setFavorites, favoritesReducer}
+export {toggleFavorite, getFavorites, setFavorites, favoritesReducer}
