@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from './forms/LoginForm';
 import {registerUser} from '../redux/userReducer';
 import {useDispatch} from 'react-redux';
-import {Container, Card} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 
 function Signup(props) {
@@ -13,13 +13,11 @@ function Signup(props) {
     };
 
     return (
-        <Container>
-            <Card className="p-5">
-                <h3>Create new account</h3>
-                <LoginForm action={signup_user} />
-            </Card>
+        <Card className="p-5">
+            <h3>Create new account</h3>
+            <LoginForm action={signup_user} />
             <a href="/login">Already have an account? Login here</a>
-        </Container>
+        </Card>
     )
 }
 

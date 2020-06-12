@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from './forms/LoginForm';
 import {loginUser} from '../redux/userReducer';
 import {useDispatch} from 'react-redux';
-import {Container, Card} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 function Login(props) {
     const dispatch = useDispatch()
@@ -11,14 +11,11 @@ function Login(props) {
     };
 
     return (
-        <Container>
-            <Card className="p-5">
-                <h3>Log In to your account</h3>
-                <LoginForm action={login_user} />
-            </Card>
+        <Card className="p-5">
+            <h3>Log In to your account</h3>
+            <LoginForm action={login_user} />
             <a href="/signup">Don't have an account? Signup here</a>
-        </Container> 
-        
+        </Card>       
     )
 }
 

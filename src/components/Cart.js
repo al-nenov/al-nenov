@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {removeFromCart, emptyCart} from '../redux/cartReducer';
 import ProductPrice from './product/ProductPrice';
 import CartTotals from './CartTotals';
-import {Container, Table, Figure, NavLink, Button, Row, Col} from 'react-bootstrap';
+import {Table, Figure, NavLink, Button, Row, Col} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
@@ -51,30 +51,30 @@ function Cart(props) {
     });
     
     return (
-            <Container className="cartPage">
-                <h3 className="py-3">Cart page</h3>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>id</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                        </tr>
-                        {cartItems}
-                    </thead>
-                </Table>
-                <Row>
-                    <Col>
-                        {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}                    
-                    </Col>
-                    <Col>
-                        <CartTotals total={cartTotal} />                    
-                    </Col>
-                </Row>
-            </Container>
+        <>
+            <h3 className="py-3">Cart page</h3>
+            <Table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>id</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                    {cartItems}
+                </thead>
+            </Table>
+            <Row>
+                <Col>
+                    {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}                    
+                </Col>
+                <Col>
+                    <CartTotals total={cartTotal} />                    
+                </Col>
+            </Row>
+        </>
     )
 }
 function mapStateToProps(globalState) {

@@ -6,27 +6,30 @@ import ProductPage from './product/ProductPage';
 import Login from './Login';
 import Signup from './Signup';
 import Cart from './Cart';
+import {Container} from 'react-bootstrap';
 
 
 function Main(props) {
     return (
-        <Switch>
-            <Route exact path="/" component ={ProductsList} />
-            <Route path="/about">
-                <h2>About</h2>
-            </Route>
-            <Route path="/dashboard">
-                <h2>{props.user}</h2>
-            </Route>
-            <Route path="/product/:id" component={ProductPage} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/login" component={Login}>
-                {props.loggedIn && <Redirect to="/" />}
-            </Route>
-            <Route path="/signup" component={Signup }>
-                {props.loggedIn && <Redirect to="/" />}
-            </Route>
-        </Switch>
+        <Container className="p-4">
+            <Switch>
+                <Route exact path="/" component ={ProductsList} />
+                <Route path="/about">
+                    <h2>About</h2>
+                </Route>
+                <Route path="/dashboard">
+                    <h2>{props.user}</h2>
+                </Route>
+                <Route path="/product/:id" component={ProductPage} />
+                <Route path="/cart" component={Cart} />
+                <Route path="/login" component={Login}>
+                    {props.loggedIn && <Redirect to="/" />}
+                </Route>
+                <Route path="/signup" component={Signup }>
+                    {props.loggedIn && <Redirect to="/" />}
+                </Route>
+            </Switch>
+        </Container>
     )
 }
 
