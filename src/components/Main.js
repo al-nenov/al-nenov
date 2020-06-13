@@ -5,7 +5,7 @@ import ProductsList from './product/ProductsList';
 import ProductPage from './product/ProductPage';
 import Login from './Login';
 import Signup from './Signup';
-import Cart from './Cart';
+import Cart from './cart/Cart';
 import {Container} from 'react-bootstrap';
 
 

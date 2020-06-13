@@ -10,7 +10,7 @@ import Product from './Product';
 function ProductsList(props) {
     const itemsPerPage = 6;
     const [activePage, setActivePage] = useState(1);
-    const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0,itemsPerPage))
+    const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0,itemsPerPage));
 
     function getCurrentProducts(firstProduct, lastProduct) {
         return props.allProducts.slice(firstProduct, lastProduct)

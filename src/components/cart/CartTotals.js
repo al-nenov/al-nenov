@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
-import ProductPrice from './product/ProductPrice';
+import ProductPrice from '../product/ProductPrice';
 
 function CartTotals(props) {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import {toast} from 'react-toastify';
-import {addToCart} from '../redux/cartReducer';
+import {addToCart} from '../../redux/cartReducer';
 import {useDispatch} from 'react-redux';
 
 function AddToCart(props) {

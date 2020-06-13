@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {Card, Row, Col, Figure} from 'react-bootstrap';
-import AddToCart from '../AddToCart';
+import AddToCart from '../cart/AddToCart';
 import ProductPrice from './ProductPrice';
 
 function ProductPage(props) {

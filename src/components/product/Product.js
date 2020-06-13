@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
-import AddToCart from '../AddToCart';
+import AddToCart from '../cart/AddToCart';
 import ProductPrice from './ProductPrice';
 import AddToFavorites from '../AddToFavorites';
  
