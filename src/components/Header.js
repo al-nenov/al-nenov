@@ -24,8 +24,11 @@ function Header(props) {
                 <Navbar.Brand>
                     <Nav.Link href="/">Home</Nav.Link>
                 </Navbar.Brand>
-                <Nav className="mr-auto">
+                <Nav>
                     <Nav.Link href="/about">About</Nav.Link>               
+                </Nav>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/dashboard">My profile</Nav.Link>               
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Nav.Link href="/cart" className="cart-items">
@@ -33,7 +36,7 @@ function Header(props) {
                         {cartItemsCounter}
                     </Nav.Link>
                     {auth.loggedIn && log_Out}
-                    {auth.loggedIn ? <Navbar.Text>Signed in as: {auth.user}</Navbar.Text> : log_In}
+                    {auth.loggedIn ? <Navbar.Text>Signed in as: <a href="/dashboard">{auth.user}</a></Navbar.Text> : log_In}
                 </Navbar.Collapse>
             </Container>
             

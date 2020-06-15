@@ -30,7 +30,7 @@ function LoginForm(props) {
             <Form.Group >
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
-                    type="text"
+                    type="password"
                     name="password"
                     placeholder="Password"
                     ref={register({

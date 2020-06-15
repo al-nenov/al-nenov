@@ -1,12 +1,15 @@
 import React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import {Container} from 'react-bootstrap';
+
+import PrivateRoute from './PrivateRoute';
 import ProductsList from './product/ProductsList';
 import ProductPage from './product/ProductPage';
 import Login from './Login';
 import Signup from './Signup';
 import Cart from './cart/Cart';
-import {Container} from 'react-bootstrap';
+import Dashboard from './user/Dashboard';
 
 
 function Main(props) {
@@ -19,11 +22,11 @@ function Main(props) {
                 <Route path="/about">
                     <h2>About</h2>
                 </Route>
-                <Route path="/dashboard">
-                    <h2>{props.user}</h2>
-                </Route>
                 <Route path="/product/:id" component={ProductPage} />
                 <Route path="/cart" component={Cart} />
+                <PrivateRoute path="/dashboard">
+                    <Dashboard />
+                </PrivateRoute>
                 <Route path="/login" component={Login}>
                     {loggedIn && <Redirect to="/" />}
                 </Route>
