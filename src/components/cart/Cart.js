@@ -1,29 +1,31 @@
 import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux';
-import {removeFromCart, emptyCart} from '../../redux/cartReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {emptyCart} from '../../actions/cartActions';
 import CartTotals from './CartTotals';
 import CartItem from './CartItem';
 import {Table, Button, Row, Col} from 'react-bootstrap';
 
 
 
-function Cart(props) {
+function Cart() {
     const [cartTotal, setCartTotal] = useState(0);
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart);
     
     useEffect(() => {
         let total = 0
-        props.cart.forEach(item => {
+        cart.forEach(item => {
             total += item.price * item.qty
         })
         setCartTotal(total)
-    }, [props.cart])
+    }, [cart])
 
 
     function handleEmptyCart() {
-        props.emptyCart()
+        dispatch(emptyCart())
     }
 
-    const cartItems = props.cart.map(item => {
+    const cartItems = cart.map(item => {
         return <CartItem  key={item.id} item={item}/>        
     });
     
@@ -54,14 +56,5 @@ function Cart(props) {
         </>
     )
 }
-function mapStateToProps(globalState) {
-    return {
-        cart: globalState.cart
-    }
-}
-const mapPropsToDispatch = {
-    removeFromCart,
-    emptyCart
-}
 
-export default connect(mapStateToProps, mapPropsToDispatch)(Cart);
+export default Cart;

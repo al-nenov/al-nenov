@@ -1,14 +1,11 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import {toast} from 'react-toastify';
-import {addToCart} from '../../redux/cartReducer';
+import {addToCart} from '../../actions/cartActions';
 import {useDispatch} from 'react-redux';
 
 function AddToCart(props) {
-    const dispatch = useDispatch();
-
+    const dispatch = useDispatch()
     function handleClick() {
-        toast(`${props.product.title} was added to your cart`)
         dispatch(addToCart(props.product))
     }
 

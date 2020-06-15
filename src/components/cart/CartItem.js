@@ -2,7 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ProductPrice from '../product/ProductPrice';
 import {Figure, NavLink} from 'react-bootstrap';
-import {removeFromCart} from '../../redux/cartReducer';
+import {removeFromCart} from '../../actions/cartActions';
 import {useDispatch} from 'react-redux';
 
 function CartItem(props) {

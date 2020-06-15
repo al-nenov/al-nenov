@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import {logOut} from '../redux/userReducer';
+import {logOut} from '../actions/userActions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 function Header(props) {

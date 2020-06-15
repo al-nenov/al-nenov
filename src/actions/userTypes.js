@@ -1,0 +1,5 @@
+export const USER_TYPES = {
+    LOG_IN_USER: 'LOG_IN_USER',
+    LOG_OUT: 'LOG_OUT',
+    REGISTER_USER: 'REGISTER_USER'
+}

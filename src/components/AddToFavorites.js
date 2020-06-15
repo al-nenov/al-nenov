@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import useHover from '../hooks/useHover';
 import useFavorites from '../hooks/useFavorites';
-import {toggleFavorite} from '../redux/favoritesReducer';
+import {toggleFavorite} from '../actions/favoritesActions';
 
 function AddToFavorites(props) {
     const dispatch = useDispatch();

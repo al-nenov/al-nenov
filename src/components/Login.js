@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from './forms/LoginForm';
-import {loginUser} from '../redux/userReducer';
+import {loginUser} from '../actions/userActions';
 import {useDispatch} from 'react-redux';
 import {Card} from 'react-bootstrap';
 

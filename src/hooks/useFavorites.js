@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {getFavorites} from '../redux/favoritesReducer';
+import {getFavorites} from '../actions/favoritesActions';
 
 function useFavorites() {
     const favorites = useSelector(state => state.favorites);
