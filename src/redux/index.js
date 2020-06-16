@@ -21,13 +21,15 @@ const persistConfig = {
     whitelist: ['userAuth', 'cart', 'favorites']
 }
 
+const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f;
+
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(
-    persistedReducer, 
+    persistedReducer,
     compose(
         applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
+        reduxDevtools
+    )
 );
 const persistor = persistStore(store);
 
