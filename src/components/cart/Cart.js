@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import {emptyCart} from '../../actions/cartActions';
 import CartTotals from './CartTotals';
 import CartItem from './CartItem';
@@ -12,6 +13,8 @@ function Cart() {
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
     
+
+
     useEffect(() => {
         let total = 0
         cart.forEach(item => {
@@ -20,6 +23,9 @@ function Cart() {
         setCartTotal(total)
     }, [cart])
 
+    if (!cart.length) {
+        return <Redirect to="/" />
+    }
 
     function handleEmptyCart() {
         dispatch(emptyCart())
@@ -45,12 +51,13 @@ function Cart() {
                     {cartItems}
                 </thead>
             </Table>
+
             <Row>
                 <Col>
-                    {cartItems.length > 0 && <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>}                    
+                    <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>
                 </Col>
                 <Col>
-                    <CartTotals total={cartTotal} />                    
+                    <CartTotals total={cartTotal} items={cart} />                    
                 </Col>
             </Row>
         </>

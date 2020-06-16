@@ -1,5 +1,6 @@
 import {store} from '../redux';
 import {CART_TYPES} from './cartTypes';
+import {ORDER} from '../services/orderService';
 import {toast} from 'react-toastify';
 
 function getCartItems() {
@@ -46,5 +47,17 @@ export function emptyCart() {
         dispatch({
             type: CART_TYPES.EMPTY_CART
         })
+    }
+}
+
+export function completeOrder(items) {
+    return async function(dispatch) {
+        const res = await ORDER.COMPLETE_ORDER(items)
+        if (res.status === "Success") {
+            dispatch({
+                type: CART_TYPES.EMPTY_CART
+            })
+            toast('Thank You for shopping with us');
+        }
     }
 }

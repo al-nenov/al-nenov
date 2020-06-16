@@ -7,8 +7,8 @@ export const USER = {
     'LOGIN': login,
     'LOGOUT': logout,
     'REGISTER': registerUser,
-    'RETURN_FAVORITES': returnFavorites,
     'TOGGLE_FAVORITE': toggleFavorite,
+    'UPDATE_USER': updateUser
 }
 
 
@@ -25,9 +25,9 @@ async function login(username, password) {
         
     } catch(err) {
         response = {
-            status: 'Failed',
-            message: err.message
-        }
+                status: 'Failed',
+                message: err.message
+            }
         return response;
     }
 
@@ -85,7 +85,8 @@ async function registerUser(username, password) {
         'username' : (username).toString(),
         'password' : (password).toString(),
         'favorites' : [],
-        'user_cart' : []
+        'user_cart' : [],
+        'orders' : []
     }
     userlist.push(user)
     localStorage.users = JSON.stringify(userlist);
@@ -95,26 +96,25 @@ async function registerUser(username, password) {
         user
     }
 }
-async function returnFavorites() {
-    if (!localStorage.user) {
-        return "No user"
-    } else {
-        const user = JSON.parse(localStorage.user);
-        return user.favorites;
-    }
-}
+
 async function toggleFavorite(productId) {
     const user = JSON.parse(localStorage.user);
     const isInFavorites = user.favorites.some((item) => item === productId);
+
     if (isInFavorites) {
         const item = user.favorites.indexOf(productId)
         user.favorites.splice(item, 1)
     } else {
         user.favorites.push(productId);
     }
+
+    updateUser(user);
+    return user.favorites;   
+}
+
+export function updateUser(user) {
     localStorage.user = JSON.stringify(user);
     updateUserList(user)
-    return user.favorites;   
 }
 
 function updateUserList(user) {    
