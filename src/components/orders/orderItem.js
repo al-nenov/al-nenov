@@ -1,14 +1,29 @@
 import React from 'react';
+import ProductPrice from '../product/ProductPrice';
+import {Figure} from 'react-bootstrap';
 
 function OrderItem(props) {
-    console.log(props)
+    const productItem = (
+        <a href={`product/${props.item.id}`}>
+            <Figure className="mx-2">
+                <Figure.Image
+                    width={50}
+                    src={'/images/products/' + props.item.image}
+                    fluid={true}
+                />
+            </Figure>
+            {props.item.title}
+        </a>
+    )
     return (
-        <div>
-            <p>{props.item.image}</p>
-            <p>{props.item.price}</p>
-            <p>{props.item.qty}</p>
-            <p>{props.item.title}</p>
-        </div>
+
+        <tr>
+            <td>{props.item.id}</td>
+            <td>{productItem}</td>
+            <td><ProductPrice price={props.item.price} /></td>
+            <td>{props.item.qty}</td>
+            <td><ProductPrice price={props.item.price * props.item.qty} /></td>
+        </tr>
     )
 }
 

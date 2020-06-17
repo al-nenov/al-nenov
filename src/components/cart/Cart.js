@@ -48,8 +48,8 @@ function Cart() {
                         <th>Qty</th>
                         <th>Total</th>
                     </tr>
-                    {cartItems}
                 </thead>
+                {cartItems}
             </Table>
 
             <Row>
