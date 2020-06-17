@@ -1,0 +1,19 @@
+.products {
+    .product {
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        .favorites-icon {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+
+            &:hover {
+                opacity: .6;
+                cursor: pointer;
+            }
+        }
+    }
+}
