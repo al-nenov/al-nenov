@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 
+import About from './About';
 import PrivateRoute from './PrivateRoute';
 import ProductsList from './product/ProductsList';
 import ProductPage from './product/ProductPage';
@@ -19,9 +20,7 @@ function Main() {
         <Container className="p-4">
             <Switch>
                 <Route exact path="/" component ={ProductsList} />
-                <Route path="/about">
-                    <h2>About</h2>
-                </Route>
+                <Route path="/about" component={About} />
                 <Route path="/product/:id" component={ProductPage} />
                 <Route path="/cart" component={Cart} />
                 <PrivateRoute path="/dashboard">
