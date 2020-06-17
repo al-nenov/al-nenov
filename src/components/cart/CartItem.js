@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ProductPrice from '../product/ProductPrice';
 import {Figure, NavLink} from 'react-bootstrap';
@@ -33,7 +34,10 @@ function CartItem(props) {
             <td><ProductPrice price={props.item.price * props.item.qty} /></td>
         </tr>
     )
+}
 
+CartItem.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 export default CartItem

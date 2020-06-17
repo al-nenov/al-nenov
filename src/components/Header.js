@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {logOut} from '../actions/userActions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function Header(props) {
+function Header() {
     const cartItems = useSelector(state => state.cart);
     const auth = useSelector(state => state.userAuth);
     const dispatch = useDispatch();

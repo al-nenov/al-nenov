@@ -12,7 +12,7 @@ import Cart from './cart/Cart';
 import Dashboard from './user/Dashboard';
 
 
-function Main(props) {
+function Main() {
     const user = useSelector(state => state.userAuth);
     const loggedIn = user.loggedIn;
     return (

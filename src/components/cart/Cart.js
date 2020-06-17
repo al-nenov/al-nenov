@@ -49,7 +49,9 @@ function Cart() {
                         <th>Total</th>
                     </tr>
                 </thead>
-                {cartItems}
+                <tbody>
+                    {cartItems}
+                </tbody>
             </Table>
 
             <Row>

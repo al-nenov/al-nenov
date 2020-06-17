@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductPrice from '../product/ProductPrice';
 import {Figure} from 'react-bootstrap';
 
@@ -22,6 +23,10 @@ function FavoriteItem(props) {
             <td><ProductPrice price={props.item.price} /></td>
         </tr>
     )
+}
+
+FavoriteItem.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 export default FavoriteItem

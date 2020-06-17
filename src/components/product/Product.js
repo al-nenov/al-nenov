@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import AddToCart from '../cart/AddToCart';
@@ -29,8 +30,16 @@ function Product(props) {
 }
 function mapStateToProps(globalState) {
     return {
-        loggedIn: globalState.userAuth.loggedIn
+        loggedIn: globalState.userAuth.loggedIn,
     }
+}
+Product.propTypes = {
+    loggedIn: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    color: PropTypes.string,
+    price: PropTypes.number.isRequired
 }
 
 export default connect(mapStateToProps, {})(Product);

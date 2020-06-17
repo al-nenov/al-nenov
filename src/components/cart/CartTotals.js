@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, Button} from 'react-bootstrap';
 import ProductPrice from '../product/ProductPrice';
 import {completeOrder} from '../../actions/cartActions';
@@ -18,6 +19,11 @@ function CartTotals(props) {
             <Button onClick={handleClick}>Complete order</Button>
         </Card>
     )
+}
+
+CartTotals.propTypes = {
+    items: PropTypes.array.isRequired,
+    total: PropTypes.number.isRequired
 }
 
 export default CartTotals

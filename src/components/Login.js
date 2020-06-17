@@ -4,7 +4,7 @@ import {loginUser} from '../actions/userActions';
 import {useDispatch} from 'react-redux';
 import {Card} from 'react-bootstrap';
 
-function Login(props) {
+function Login() {
     const dispatch = useDispatch()
     const login_user = (username, password, setError) => {
         dispatch(loginUser(username, password, setError))

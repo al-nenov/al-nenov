@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import {Card} from 'react-bootstrap';
 
 
-function Signup(props) {
+function Signup() {
     const dispatch = useDispatch()
     
     const signup_user = (username, password, setError) => {

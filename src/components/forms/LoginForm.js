@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Form, Button} from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
 
@@ -47,6 +48,10 @@ function LoginForm(props) {
             </Button>
         </Form>
     )
+}
+
+LoginForm.propTypes = {
+    action: PropTypes.func.isRequired
 }
 
 export default LoginForm

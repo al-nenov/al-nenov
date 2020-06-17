@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductPrice from '../product/ProductPrice';
 import {Figure} from 'react-bootstrap';
 
@@ -25,6 +26,10 @@ function OrderItem(props) {
             <td><ProductPrice price={props.item.price * props.item.qty} /></td>
         </tr>
     )
+}
+
+OrderItem.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 export default OrderItem
