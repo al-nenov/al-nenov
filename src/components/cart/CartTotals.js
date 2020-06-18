@@ -14,7 +14,7 @@ function CartTotals(props) {
     }
 
     return (
-        <Card>
+        <Card className="p-4">
             <h5>Cart Totals:</h5>
             <p>Total : <ProductPrice price={props.total} /></p>
             {!loggedIn && 
@@ -23,7 +23,7 @@ function CartTotals(props) {
                     <a href="/login">Login here</a>
                 </div>
             }
-            <Button onClick={handleClick} disabled={!loggedIn}>Complete order</Button>
+            <Button variant="secondary" onClick={handleClick} disabled={!loggedIn}>Complete order</Button>
         </Card>
     )
 }

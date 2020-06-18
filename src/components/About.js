@@ -39,7 +39,7 @@ function About() {
                             <li><a href="https://www.npmjs.com/package/redux-thunk" target="_blank" rel="noopener noreferrer">Thunk</a></li>
                             <li><a href="https://www.npmjs.com/package/redux-persist" target="_blank" rel="noopener noreferrer">Persist</a></li>
                         </ul>
-                    <li><a href="https://www.npmjs.com/package/react-router-dom"React  target="_blank" rel="noopener noreferrer">Router</a></li>
+                    <li><a href="https://www.npmjs.com/package/react-router-dom" target="_blank" rel="noopener noreferrer">Router</a></li>
                     <li><a href="https://www.npmjs.com/package/prop-types" target="_blank" rel="noopener noreferrer">Prop Types</a></li>
                     <li><a href="https://www.npmjs.com/package/react-hook-form" target="_blank" rel="noopener noreferrer">React Hook Form</a></li>
                     <li><a href="https://www.npmjs.com/package/react-js-pagination" target="_blank" rel="noopener noreferrer">React js pagination</a></li>

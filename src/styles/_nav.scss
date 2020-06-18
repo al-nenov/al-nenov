@@ -1,6 +1,6 @@
 nav.navbar {
     &.navbar-dark {
-        a {
+        a, .navbar-nav .nav-link {
             color: white;
             &:hover {
                 opacity: .8;

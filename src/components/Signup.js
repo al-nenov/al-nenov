@@ -16,7 +16,7 @@ function Signup() {
         <Card className="p-5">
             <h3>Create new account</h3>
             <LoginForm action={signup_user} />
-            <a href="/login">Already have an account? Login here</a>
+            <a href="/login" className="pt-3">Already have an account? Login here</a>
         </Card>
     )
 }

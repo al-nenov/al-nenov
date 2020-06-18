@@ -14,7 +14,7 @@ function Login() {
         <Card className="p-5">
             <h3>Log In to your account</h3>
             <LoginForm action={login_user} />
-            <a href="/signup">Don't have an account? Signup here</a>
+            <a href="/signup" className="pt-3">Don't have an account? Signup here</a>
         </Card>       
     )
 }

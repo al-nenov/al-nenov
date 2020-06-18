@@ -25,7 +25,7 @@ function LoginForm(props) {
                     name="username" 
                     placeholder="Username" 
                 />
-                    {errors.username && errors.username.message}
+                <p className="text-danger">{errors.username && errors.username.message}</p>
             </Form.Group>
 
             <Form.Group >
@@ -39,10 +39,12 @@ function LoginForm(props) {
                         validate: {passwordLength: value => value.length >= 6}
                     })}
                 />
-                {errors.password && errors.password.message}
-                {errors.password && errors.password.type === 'passwordLength' && <p>Your password must be atleast 6 symbols</p>}
+                <p className="text-danger">
+                    {errors.password && errors.password.message}
+                    {errors.password && errors.password.type === 'passwordLength' && <p>Your password must be atleast 6 symbols</p>}
+                    {errors.login && errors.login.message}
+                </p>
             </Form.Group>
-            {errors.login && errors.login.message}
             <Button variant="primary" type="submit">
                 Submit
             </Button>
