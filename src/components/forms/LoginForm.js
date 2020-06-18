@@ -17,7 +17,7 @@ function LoginForm(props) {
                     id="username"
                     ref={register({ 
                         required: (
-                            <p>Cannot be empty</p>
+                            'Cannot be empty'
                         ),
                         maxLength: 20 
                     })} 
@@ -35,7 +35,7 @@ function LoginForm(props) {
                     name="password"
                     placeholder="Password"
                     ref={register({
-                        required: <p className="text-danger">Password can not be empty</p>,
+                        required: 'Password can not be empty',
                         validate: {passwordLength: value => value.length >= 6}
                     })}
                 />
