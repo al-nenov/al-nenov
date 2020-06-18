@@ -19,17 +19,17 @@ function Main() {
     return (
         <Container className="p-4">
             <Switch>
-                <Route exact path="/" component ={ProductsList} />
-                <Route path="/about" component={About} />
-                <Route path="/product/:id" component={ProductPage} />
-                <Route path="/cart" component={Cart} />
-                <PrivateRoute path="/dashboard">
+                <Route exact path={process.env.PUBLIC_URL + "/"} component ={ProductsList} />
+                <Route path={process.env.PUBLIC_URL + "/about"} component={About} />
+                <Route path={process.env.PUBLIC_URL + "/product/:id"} component={ProductPage} />
+                <Route path={process.env.PUBLIC_URL + "/cart"} component={Cart} />
+                <PrivateRoute path={process.env.PUBLIC_URL + "/dashboard"}>
                     <Dashboard />
                 </PrivateRoute>
-                <Route path="/login" component={Login}>
+                <Route path={process.env.PUBLIC_URL + "/login"} component={Login}>
                     {loggedIn && <Redirect to="/" />}
                 </Route>
-                <Route path="/signup" component={Signup }>
+                <Route path={process.env.PUBLIC_URL + "/signup"} component={Signup }>
                     {loggedIn && <Redirect to="/" />}
                 </Route>
             </Switch>
