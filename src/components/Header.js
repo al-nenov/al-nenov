@@ -35,7 +35,7 @@ function Header() {
                         <NavLink className="nav-link" to="/dashboard">My profile</NavLink>               
                     </Nav>
                     <Nav className="justify-content-end">
-                        <NavLink className="nav-link cart-items" to="/cart">
+                        <NavLink className="nav-link cart-items mr-2" to="/cart">
                             <FontAwesomeIcon icon="shopping-basket"/>
                             {cartItemsCounter}
                         </NavLink>

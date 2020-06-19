@@ -1,22 +1,25 @@
 nav.navbar {
     &.navbar-dark {
         a, .navbar-nav .nav-link {
-            color: white;
+            color: $white;
             &:hover {
                 opacity: .8;
             }
         }
     }
+    .navbar-collapse {
+        text-align: right;
+    }
+
     .cart-items {
         position: relative;
         .cart-items_counter {
             height: 1rem;
             width: 1rem;
-            background-color: #FF005E;
+            background-color: $danger;
             border-radius: 50%;
             text-align: center;
             line-height: 1rem;
-            right: .25rem;
             top: .25rem;
             position: absolute;
         }
