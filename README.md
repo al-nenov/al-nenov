@@ -1,7 +1,42 @@
+# Overview
+
+![React Demo Store](/src/Preview.jpg)
+
 ## Description
 
-Simple online shopping app, build with React<br />
-The purpose of this project is for learning React only
+Simple store app built with React. The purpoupse of this project is to learn and master the React and Redux foundations.
+
+The app uses localStorage to store and read any user information.
+If any conflict is caused by already stored data you can clear localStorage or open the app in incognito mode
+
+## What you can do with this app
+
+* Create or login to your account
+* Add or remove products to your favorites list \*
+* Add products to Cart
+* Remove products from cart
+* Empty cart
+* Complete order \*
+* See your orders and favourited products in your dashboard \*
+* *\*You need to be logged in*
+
+## Live Demo
+
+[https://al-nenov.github.io/react-shop/](https://al-nenov.github.io/react-shop/)
+
+## Packages
+
+* React
+* Redux
+  * [Thunk](https://www.npmjs.com/package/redux-thunk)
+  * [Persist](https://www.npmjs.com/package/redux-persist)
+* [Router](https://www.npmjs.com/package/react-router-dom)
+* [Prop Types](https://www.npmjs.com/package/prop-types)
+* [React Hook Form](https://www.npmjs.com/package/react-hook-form)
+* [React js pagination](https://www.npmjs.com/package/react-js-pagination)
+* [React Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+* [Font Awesome](https://www.npmjs.com/package/@fortawesome/react-fontawesome)
+* [React Toastify](https://www.npmjs.com/package/react-toastify)
 
 ## Available Scripts
 
