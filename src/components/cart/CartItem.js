@@ -5,6 +5,7 @@ import ProductPrice from '../product/ProductPrice';
 import {Figure, NavLink} from 'react-bootstrap';
 import {removeFromCart} from '../../actions/cartActions';
 import {useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 function CartItem(props) {
     const dispatch = useDispatch();
@@ -13,16 +14,16 @@ function CartItem(props) {
         dispatch(removeFromCart(id))
     }
     const productItem = 
-        <a href={`product/${props.item.id}`}>
+        <Link to={`product/${props.item.id}`}>
             <Figure className="mx-2">
                 <Figure.Image
                     width={50}
-                    src={'/images/products/' + props.item.image}
+                    src={process.env.PUBLIC_URL + '/images/products/' + props.item.image}
                     fluid={true}
                 />
             </Figure>
             {props.item.title}
-        </a>
+        </Link>
 
     return (
         <tr>

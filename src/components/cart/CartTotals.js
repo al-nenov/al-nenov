@@ -4,6 +4,7 @@ import {Card, Button} from 'react-bootstrap';
 import ProductPrice from '../product/ProductPrice';
 import {completeOrder} from '../../actions/cartActions';
 import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 function CartTotals(props) {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function CartTotals(props) {
             {!loggedIn && 
                 <div>
                     <p className="text-warning">You need to be logged in to complete an order</p>
-                    <a href="/login">Login here</a>
+                    <Link to="/login">Login here</Link>
                 </div>
             }
             <Button variant="secondary" onClick={handleClick} disabled={!loggedIn}>Complete order</Button>

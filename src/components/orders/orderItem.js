@@ -2,19 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductPrice from '../product/ProductPrice';
 import {Figure} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 function OrderItem(props) {
     const productItem = (
-        <a href={`product/${props.item.id}`}>
+        <Link to={`product/${props.item.id}`}>
             <Figure className="mx-2">
                 <Figure.Image
                     width={50}
-                    src={'/images/products/' + props.item.image}
+                    src={process.env.PUBLIC_URL + '/images/products/' + props.item.image}
                     fluid={true}
                 />
             </Figure>
             {props.item.title}
-        </a>
+        </Link>
     )
     return (
 

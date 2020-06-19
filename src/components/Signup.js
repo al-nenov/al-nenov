@@ -3,7 +3,7 @@ import LoginForm from './forms/LoginForm';
 import {registerUser} from '../actions/userActions';
 import {useDispatch} from 'react-redux';
 import {Card} from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 
 function Signup() {
     const dispatch = useDispatch()
@@ -16,7 +16,7 @@ function Signup() {
         <Card className="p-5">
             <h3>Create new account</h3>
             <LoginForm action={signup_user} />
-            <a href="/login" className="pt-3">Already have an account? Login here</a>
+            <Link to="/login" className="pt-3">Already have an account? Login here</Link>
         </Card>
     )
 }

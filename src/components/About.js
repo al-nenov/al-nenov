@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 function About() {
     return (
@@ -14,13 +15,13 @@ function About() {
             <div className="section">
                 <h2>What you can do with this app</h2>
                 <ul>
-                    <li><a href="/login" target="blank">Create or login to your account</a></li>
+                    <li><Link to="/login" target="blank">Create or login to your account</Link></li>
                     <li>Add or remove products to your favorites list *</li>
                     <li>Add products to Cart</li>
                     <li>Remove products from cart</li>
                     <li>Empty cart</li>
                     <li>Complete order *</li>
-                    <li>See your orders and favourited products in your <a href="/dashboard">dashboard</a> *</li>
+                    <li>See your orders and favourited products in your <Link to="/dashboard">dashboard</Link> *</li>
                     <span className="font-italic">* You need to be logged in</span>
                 </ul>
             </div>

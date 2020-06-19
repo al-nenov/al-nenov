@@ -19,7 +19,7 @@ function ProductPage(props) {
             <Col md={6} sl={'auto'}>
                 <Figure>
                     <Figure.Image 
-                        src={'/images/products/' + product.image}
+                        src={process.env.PUBLIC_URL + '/images/products/' + product.image}
                         fluid={true}
                     />
                 </Figure>

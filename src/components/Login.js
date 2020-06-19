@@ -3,6 +3,7 @@ import LoginForm from './forms/LoginForm';
 import {loginUser} from '../actions/userActions';
 import {useDispatch} from 'react-redux';
 import {Card} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 function Login() {
     const dispatch = useDispatch()
@@ -14,7 +15,7 @@ function Login() {
         <Card className="p-5">
             <h3>Log In to your account</h3>
             <LoginForm action={login_user} />
-            <a href="/signup" className="pt-3">Don't have an account? Signup here</a>
+            <Link to="/signup" className="pt-3">Don't have an account? Signup here</Link>
         </Card>       
     )
 }
