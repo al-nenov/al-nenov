@@ -1,5 +1,6 @@
 
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import {Row} from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import {connect} from 'react-redux';
@@ -51,6 +52,10 @@ function mapStateToProps(globalState) {
     return {
         allProducts: globalState.products.allProducts
     }
+}
+
+ProductsList.propTypes = {
+    allProducts: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, {})(ProductsList);

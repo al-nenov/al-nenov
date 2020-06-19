@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import OrderItem from './OrderItem';
 import {Table} from 'react-bootstrap';
 import ProductPrice from '../product/ProductPrice';
@@ -33,6 +34,10 @@ function Order(props) {
             </Table>
         </div>
     )
+}
+
+Order.propTypes = {
+    order: PropTypes.object.isRequired
 }
 
 export default Order;

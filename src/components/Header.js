@@ -1,10 +1,11 @@
 import React from 'react';
 import {Navbar, Nav, Container} from 'react-bootstrap';
+import {NavLink, Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {logOut} from '../actions/userActions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-function Header(props) {
+function Header() {
     const cartItems = useSelector(state => state.cart);
     const auth = useSelector(state => state.userAuth);
     const dispatch = useDispatch();
@@ -14,32 +15,32 @@ function Header(props) {
     }
     
 
-    const log_Out = <Nav.Link onClick={() =>handleClick()}>Log Out</Nav.Link>;
-    const log_In = <Nav.Link href="/login">Login</Nav.Link>;
+    const log_Out = <Nav.Link className="nav-link" onClick={() =>handleClick()}>Log Out</Nav.Link>;
+    const log_In = <NavLink className="nav-link" to="/login">Login</NavLink>;
     const cartItemsCounter = cartItems.length > 0 && <span className="cart-items_counter">{cartItems.length}</span>;
 
     return (
         <Navbar bg="dark" variant="dark" expand="md">
             <Container>
                 <Navbar.Brand>
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <NavLink className="nav-link" to="/">Home</NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 <Navbar.Collapse>
                     <Nav>
-                        <Nav.Link href="/about">About</Nav.Link>               
+                        <NavLink className="nav-link" to="/about">About</NavLink>               
                     </Nav>
                     <Nav className="mr-auto">
-                        <Nav.Link href="/dashboard">My profile</Nav.Link>               
+                        <NavLink className="nav-link" to="/dashboard">My profile</NavLink>               
                     </Nav>
                     <Nav className="justify-content-end">
-                        <Nav.Link href="/cart" className="cart-items">
+                        <NavLink className="nav-link cart-items mr-2" to="/cart">
                             <FontAwesomeIcon icon="shopping-basket"/>
                             {cartItemsCounter}
-                        </Nav.Link>
+                        </NavLink>
                         {auth.loggedIn && log_Out}
-                        {auth.loggedIn ? <Navbar.Text>Signed in as: <a href="/dashboard">{auth.user}</a></Navbar.Text> : log_In}
+                        {auth.loggedIn ? <Navbar.Text>Signed in as: <Link to="/dashboard">{auth.user}</Link></Navbar.Text> : log_In}
                     </Nav>
                 </Navbar.Collapse>
             </Container>            

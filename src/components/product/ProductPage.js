@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {Card, Row, Col, Figure} from 'react-bootstrap';
@@ -18,7 +19,7 @@ function ProductPage(props) {
             <Col md={6} sl={'auto'}>
                 <Figure>
                     <Figure.Image 
-                        src={'/images/products/' + product.image}
+                        src={process.env.PUBLIC_URL + '/images/products/' + product.image}
                         fluid={true}
                     />
                 </Figure>
@@ -50,6 +51,10 @@ function mapStateToProps(globalState) {
         products: globalState.products.allProducts,
         cart: globalState.cart
     }
+}
+
+ProductPage.propTypes = {
+    products: PropTypes.array.isRequired
 }
 
 export default connect(mapStateToProps)(ProductPage);

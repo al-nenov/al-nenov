@@ -1,23 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, Button} from 'react-bootstrap';
 import ProductPrice from '../product/ProductPrice';
 import {completeOrder} from '../../actions/cartActions';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 function CartTotals(props) {
     const dispatch = useDispatch();
+    const loggedIn = useSelector(state => state.userAuth.loggedIn);
 
     function handleClick() {
-        dispatch(completeOrder(props.items))
+        loggedIn && dispatch(completeOrder(props.items))
     }
 
     return (
-        <Card>
+        <Card className="p-4">
             <h5>Cart Totals:</h5>
             <p>Total : <ProductPrice price={props.total} /></p>
-            <Button onClick={handleClick}>Complete order</Button>
+            {!loggedIn && 
+                <div>
+                    <p className="text-warning">You need to be logged in to complete an order</p>
+                    <Link to="/login">Login here</Link>
+                </div>
+            }
+            <Button variant="secondary" onClick={handleClick} disabled={!loggedIn}>Complete order</Button>
         </Card>
     )
+}
+
+CartTotals.propTypes = {
+    items: PropTypes.array.isRequired,
+    total: PropTypes.number.isRequired
 }
 
 export default CartTotals

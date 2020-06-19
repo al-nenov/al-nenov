@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import useHover from '../hooks/useHover';
@@ -27,6 +28,10 @@ function AddToFavorites(props) {
                 style = {{color:'red'}}/>
         </span>
     )
+}
+
+AddToFavorites.propTypes = {
+    product: PropTypes.number.isRequired
 }
 
 export default AddToFavorites

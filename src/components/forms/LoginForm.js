@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Form, Button} from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
 
@@ -16,7 +17,7 @@ function LoginForm(props) {
                     id="username"
                     ref={register({ 
                         required: (
-                            <p>Cannot be empty</p>
+                            'Cannot be empty'
                         ),
                         maxLength: 20 
                     })} 
@@ -24,7 +25,7 @@ function LoginForm(props) {
                     name="username" 
                     placeholder="Username" 
                 />
-                    {errors.username && errors.username.message}
+                <p className="text-danger">{errors.username && errors.username.message}</p>
             </Form.Group>
 
             <Form.Group >
@@ -34,19 +35,25 @@ function LoginForm(props) {
                     name="password"
                     placeholder="Password"
                     ref={register({
-                        required: <p className="text-danger">Password can not be empty</p>,
+                        required: 'Password can not be empty',
                         validate: {passwordLength: value => value.length >= 6}
                     })}
                 />
-                {errors.password && errors.password.message}
-                {errors.password && errors.password.type === 'passwordLength' && <p>Your password must be atleast 6 symbols</p>}
+                <p className="text-danger">
+                    {errors.password && errors.password.message}
+                    {errors.password && errors.password.type === 'passwordLength' && <p>Your password must be atleast 6 symbols</p>}
+                    {errors.login && errors.login.message}
+                </p>
             </Form.Group>
-            {errors.login && errors.login.message}
             <Button variant="primary" type="submit">
                 Submit
             </Button>
         </Form>
     )
+}
+
+LoginForm.propTypes = {
+    action: PropTypes.func.isRequired
 }
 
 export default LoginForm

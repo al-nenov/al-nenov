@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import AddToCart from '../cart/AddToCart';
 import ProductPrice from './ProductPrice';
 import AddToFavorites from '../AddToFavorites';
@@ -10,8 +12,8 @@ function Product(props) {
         <Col md={4} sm={'auto'} className="product mb-5">
             <Card>
                 {props.loggedIn && <AddToFavorites product={props.id}/> }
-                <a href={`product/${props.id}`}>
-                    <Card.Img variant="top" src={'/images/products/' + props.image} />
+                <Link to={`product/${props.id}`}>
+                    <Card.Img variant="top" src={process.env.PUBLIC_URL + '/images/products/' + props.image} />
                     <Card.Body>
                         <Card.Title>{props.title}</Card.Title>
                         <Card.Text>
@@ -21,7 +23,7 @@ function Product(props) {
                             Price: <ProductPrice price={props.price} />
                         </Card.Text>
                     </Card.Body>
-                </a>
+                </Link>
                 <AddToCart product={props} />
             </Card>            
         </Col>
@@ -29,8 +31,16 @@ function Product(props) {
 }
 function mapStateToProps(globalState) {
     return {
-        loggedIn: globalState.userAuth.loggedIn
+        loggedIn: globalState.userAuth.loggedIn,
     }
+}
+Product.propTypes = {
+    loggedIn: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    color: PropTypes.string,
+    price: PropTypes.number.isRequired
 }
 
 export default connect(mapStateToProps, {})(Product);

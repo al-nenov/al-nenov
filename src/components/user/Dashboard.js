@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import OrdersList from '../orders/OrdersList';
+import FavoritesList from '../favorites/FavoritesList';
 import {Tabs, Tab} from 'react-bootstrap';
 
 function Dashboard() {
@@ -15,7 +16,7 @@ function Dashboard() {
                     <OrdersList />
                 </Tab>
                 <Tab eventKey={"favorites"} title="Favorites">
-                    <OrdersList />
+                    <FavoritesList />
                 </Tab>
             </Tabs>
         </>
