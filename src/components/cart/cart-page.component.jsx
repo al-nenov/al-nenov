@@ -1,23 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {emptyCart} from '../../actions/cartActions';
-import CartTotals from './cart-totals.component';
-import CartItem from './cart-item.component';
-import {Table, Button, Row, Col} from 'react-bootstrap';
-
-
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { emptyCart } from '../../actions/cartActions'
+import CartTotals from './cart-totals.component'
+import CartItem from './cart-item.component'
+import { Table, Button, Row, Col } from 'react-bootstrap'
 
 function Cart() {
-    const [cartTotal, setCartTotal] = useState(0);
-    const dispatch = useDispatch();
-    const cart = useSelector(state => state.cart);
-    
-
+    const [cartTotal, setCartTotal] = useState(0)
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.cart)
 
     useEffect(() => {
         let total = 0
-        cart.forEach(item => {
+        cart.forEach((item) => {
             total += item.price * item.qty
         })
         setCartTotal(total)
@@ -31,10 +27,10 @@ function Cart() {
         dispatch(emptyCart())
     }
 
-    const cartItems = cart.map(item => {
-        return <CartItem  key={item.id} item={item}/>        
-    });
-    
+    const cartItems = cart.map((item) => {
+        return <CartItem key={item.id} item={item} />
+    })
+
     return (
         <>
             <h3 className="py-3">Cart page</h3>
@@ -49,21 +45,21 @@ function Cart() {
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {cartItems}
-                </tbody>
+                <tbody>{cartItems}</tbody>
             </Table>
 
             <Row>
                 <Col>
-                    <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty cart</Button>
+                    <Button variant="outline-secondary" onClick={handleEmptyCart}>
+                        Empty cart
+                    </Button>
                 </Col>
                 <Col>
-                    <CartTotals total={cartTotal} items={cart} />                    
+                    <CartTotals total={cartTotal} items={cart} />
                 </Col>
             </Row>
         </>
     )
 }
 
-export default Cart;
+export default Cart

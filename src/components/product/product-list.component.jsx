@@ -1,48 +1,41 @@
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { Row } from 'react-bootstrap'
+import Pagination from 'react-js-pagination'
+import { connect } from 'react-redux'
 
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import {Row} from 'react-bootstrap';
-import Pagination from 'react-js-pagination';
-import {connect} from 'react-redux';
-
-import Product from './product-item.component';
-
+import Product from './product-item.component'
 
 function ProductsList(props) {
-    const itemsPerPage = 6;
-    const [activePage, setActivePage] = useState(1);
-    const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0,itemsPerPage));
+    const itemsPerPage = 6
+    const [activePage, setActivePage] = useState(1)
+    const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0, itemsPerPage))
 
     function getCurrentProducts(firstProduct, lastProduct) {
         return props.allProducts.slice(firstProduct, lastProduct)
     }
 
     const products = activeProducts.map((product) => {
-        return (
-            <Product key={product.id} {...product} />
-        )
+        return <Product key={product.id} {...product} />
     })
 
-
     function handlePageChange(pageNumber) {
-        setActivePage(pageNumber);
-        const lastProduct = pageNumber * itemsPerPage;
-        const firstProduct = lastProduct - itemsPerPage;
+        setActivePage(pageNumber)
+        const lastProduct = pageNumber * itemsPerPage
+        const firstProduct = lastProduct - itemsPerPage
         setActiveProducts(getCurrentProducts(firstProduct, lastProduct))
     }
 
     return (
         <>
-            <Row className="justify-content-center products">
-                {products}
-            </Row>
+            <Row className="justify-content-center products">{products}</Row>
             <Pagination
-                activePage = {activePage}
+                activePage={activePage}
                 itemClass="page-item"
                 linkClass="page-link"
-                itemsCountPerPage = {itemsPerPage}
-                totalItemsCount = {props.allProducts.length}
-                pageRangeDisplayed = {5}
+                itemsCountPerPage={itemsPerPage}
+                totalItemsCount={props.allProducts.length}
+                pageRangeDisplayed={5}
                 onChange={handlePageChange}
             />
         </>
@@ -55,7 +48,7 @@ function mapStateToProps(globalState) {
 }
 
 ProductsList.propTypes = {
-    allProducts: PropTypes.array.isRequired,
+    allProducts: PropTypes.array.isRequired
 }
 
-export default connect(mapStateToProps, {})(ProductsList);
+export default connect(mapStateToProps, {})(ProductsList)

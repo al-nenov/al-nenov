@@ -1,12 +1,12 @@
-import React from 'react';
-import {ORDER} from '../../services/orderService';
-import Order from './Order';
+import React from 'react'
+import { ORDER } from '../../services/orderService'
+import Order from './Order'
 
 function OrdersList() {
-    const ordersList = ORDER.ORDERS_LIST();
+    const ordersList = ORDER.ORDERS_LIST()
 
     const orders = ordersList.map((order) => {
-        return <Order key={order.id} order={order}/>
+        return <Order key={order.id} order={order} />
     })
 
     return (

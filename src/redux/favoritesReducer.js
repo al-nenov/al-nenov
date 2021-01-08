@@ -1,16 +1,17 @@
-import {FAVORITES_TYPES} from '../actions/favoritesTypes';
-let favorites = [];
+import { FAVORITES_TYPES } from '../actions/favoritesTypes'
+let favorites = []
 
-const favoritesReducer = function(state = favorites, action) {
+const favoritesReducer = function (state = favorites, action) {
     switch (action.type) {
-        case FAVORITES_TYPES.TOGLE_FAVORITE :
+        case FAVORITES_TYPES.TOGLE_FAVORITE:
             return action.payload
-        case FAVORITES_TYPES.SET_FAVORITES : 
+        case FAVORITES_TYPES.SET_FAVORITES:
             return action.payload
-        case FAVORITES_TYPES.GET_FAVORITES :
+        case FAVORITES_TYPES.GET_FAVORITES:
             return action.payload
-        default: return state
+        default:
+            return state
     }
 }
 
-export {favoritesReducer}
+export { favoritesReducer }

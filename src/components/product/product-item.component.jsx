@@ -1,37 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Card, Col} from 'react-bootstrap';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import AddToCart from '../cart/add-to-cart.component';
-import ProductPrice from './product-price.component';
-import AddToFavorites from '../../components/favorites/add-to-favorites.component';
- 
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Card, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import AddToCart from '../cart/add-to-cart.component'
+import ProductPrice from './product-price.component'
+import AddToFavorites from '../../components/favorites/add-to-favorites.component'
+
 function Product(props) {
     return (
         <Col md={4} sm={'auto'} className="product mb-5">
             <Card>
-                {props.loggedIn && <AddToFavorites product={props.id}/> }
+                {props.loggedIn && <AddToFavorites product={props.id} />}
                 <Link to={`product/${props.id}`}>
-                    <Card.Img variant="top" src={process.env.PUBLIC_URL + '/images/products/' + props.image} />
+                    <Card.Img
+                        variant="top"
+                        src={process.env.PUBLIC_URL + '/images/products/' + props.image}
+                    />
                     <Card.Body>
                         <Card.Title>{props.title}</Card.Title>
-                        <Card.Text>
-                            Color: {props.color}
-                        </Card.Text>
+                        <Card.Text>Color: {props.color}</Card.Text>
                         <Card.Text>
                             Price: <ProductPrice price={props.price} />
                         </Card.Text>
                     </Card.Body>
                 </Link>
                 <AddToCart product={props} />
-            </Card>            
+            </Card>
         </Col>
     )
 }
 function mapStateToProps(globalState) {
     return {
-        loggedIn: globalState.userAuth.loggedIn,
+        loggedIn: globalState.userAuth.loggedIn
     }
 }
 Product.propTypes = {
@@ -43,4 +44,4 @@ Product.propTypes = {
     price: PropTypes.number.isRequired
 }
 
-export default connect(mapStateToProps, {})(Product);
+export default connect(mapStateToProps, {})(Product)

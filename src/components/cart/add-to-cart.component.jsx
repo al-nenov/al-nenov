@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Button} from 'react-bootstrap';
-import {addToCart} from '../../actions/cartActions';
-import {useDispatch} from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button } from 'react-bootstrap'
+import { addToCart } from '../../actions/cartActions'
+import { useDispatch } from 'react-redux'
 
 function AddToCart(props) {
     const dispatch = useDispatch()

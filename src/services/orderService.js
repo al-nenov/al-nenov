@@ -1,11 +1,9 @@
-
-import {USER} from './userService';
+import { USER } from './userService'
 
 export const ORDER = {
-    'COMPLETE_ORDER': completeOrder,
-    'ORDERS_LIST': getOrders
+    COMPLETE_ORDER: completeOrder,
+    ORDERS_LIST: getOrders
 }
-
 
 async function completeOrder(items) {
     try {
@@ -20,22 +18,22 @@ async function completeOrder(items) {
         return {
             status: 'Failed',
             message: err.message
-        };
+        }
     }
 
-    const user = JSON.parse(localStorage.user);
+    const user = JSON.parse(localStorage.user)
     user.orders.push({
         id: user.orders.length + 1,
         items: [...items]
     })
-    USER.UPDATE_USER(user);
+    USER.UPDATE_USER(user)
 
     return {
         status: 'Success',
         user
-    };
+    }
 }
 
 function getOrders() {
-    return JSON.parse(localStorage.user).orders;
+    return JSON.parse(localStorage.user).orders
 }

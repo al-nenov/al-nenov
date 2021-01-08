@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import OrderItem from "./order-item.component";
-import { Table } from "react-bootstrap";
-import ProductPrice from "../product/product-price.component";
+import React from 'react'
+import PropTypes from 'prop-types'
+import OrderItem from './order-item.component'
+import { Table } from 'react-bootstrap'
+import ProductPrice from '../product/product-price.component'
 
 function Order(props) {
-    let orderTotal = 0;
-    let orderItems = props.order.items.map(item => {
-        orderTotal += item.qty * item.price;
-        return <OrderItem key={item.id} item={item} />;
-    });
+    let orderTotal = 0
+    let orderItems = props.order.items.map((item) => {
+        orderTotal += item.qty * item.price
+        return <OrderItem key={item.id} item={item} />
+    })
     return (
         <div>
             <h5>Order # {props.order.id}</h5>
@@ -35,11 +35,11 @@ function Order(props) {
                 </tfoot>
             </Table>
         </div>
-    );
+    )
 }
 
 Order.propTypes = {
-    order: PropTypes.object.isRequired,
-};
+    order: PropTypes.object.isRequired
+}
 
-export default Order;
+export default Order

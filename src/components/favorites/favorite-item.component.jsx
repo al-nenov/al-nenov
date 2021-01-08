@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ProductPrice from '../product/product-price.component';
-import {Figure} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types'
+import ProductPrice from '../product/product-price.component'
+import { Figure } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function FavoriteItem(props) {
     const productItem = (
@@ -21,7 +21,9 @@ function FavoriteItem(props) {
         <tr>
             <td>{props.item.id}</td>
             <td>{productItem}</td>
-            <td><ProductPrice price={props.item.price} /></td>
+            <td>
+                <ProductPrice price={props.item.price} />
+            </td>
         </tr>
     )
 }

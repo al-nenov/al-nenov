@@ -1,15 +1,14 @@
-import Products from '../products/products.json';
+import Products from '../products/products.json'
 
 const initalState = {
-    allProducts: Products,
+    allProducts: Products
 }
-
 
 const productsReducer = (state = initalState, action) => {
     switch (action.type) {
         default:
-            return state;    
+            return state
     }
 }
 
-export {productsReducer};
+export { productsReducer }

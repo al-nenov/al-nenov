@@ -1,28 +1,24 @@
-import {USER} from '../services/userService';
-import {USER_TYPES} from './userTypes';
+import { USER } from '../services/userService'
+import { USER_TYPES } from './userTypes'
 
 export function loginUser(username, password, setError) {
     return (dispatch) => {
-        USER.LOGIN(username, password)
-            .then(
-                (res) => {
-                    if (res.status === 'Success') {
-                        dispatch({
-                            type: USER_TYPES.LOG_IN_USER,
-                            payload: res.user.username
-                        })
-                    } else {
-                        setError('login', 'failed', res.message)
-                    }
-                }
-            )
+        USER.LOGIN(username, password).then((res) => {
+            if (res.status === 'Success') {
+                dispatch({
+                    type: USER_TYPES.LOG_IN_USER,
+                    payload: res.user.username
+                })
+            } else {
+                setError('login', 'failed', res.message)
+            }
+        })
     }
 }
 
 export function logOut() {
     return (dispatch) => {
-        USER.LOGOUT()
-        .then((res) => {
+        USER.LOGOUT().then((res) => {
             if (res.status === 'Success') {
                 dispatch({
                     type: USER_TYPES.LOG_OUT
@@ -31,26 +27,22 @@ export function logOut() {
                 console.error(res.message)
             }
         })
-    }    
+    }
 }
 
 export function registerUser(username, password, setError) {
     return (dispatch) => {
-        USER.REGISTER(username, password)
-            .then(
-                (res) => {
-                    if (res.status === 'Success') {
-                        USER.LOGIN(username, password)
-                            .then((res) =>{
-                                dispatch({
-                                type: USER_TYPES.LOG_IN_USER,
-                                payload: res.user.username
-                            })
-                        })                        
-                    } else {
-                        setError('login', 'failed', res.message)
-                    }
-                }
-            )
+        USER.REGISTER(username, password).then((res) => {
+            if (res.status === 'Success') {
+                USER.LOGIN(username, password).then((res) => {
+                    dispatch({
+                        type: USER_TYPES.LOG_IN_USER,
+                        payload: res.user.username
+                    })
+                })
+            } else {
+                setError('login', 'failed', res.message)
+            }
+        })
     }
 }
