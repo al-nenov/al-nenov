@@ -4,7 +4,7 @@ import OrderItem from './order-item.component'
 import { Table } from 'react-bootstrap'
 import ProductPrice from '../product/product-price.component'
 
-function Order(props) {
+function OrderTab(props) {
     let orderTotal = 0
     let orderItems = props.order.items.map((item) => {
         orderTotal += item.qty * item.price
@@ -38,8 +38,8 @@ function Order(props) {
     )
 }
 
-Order.propTypes = {
+OrderTab.propTypes = {
     order: PropTypes.object.isRequired
 }
 
-export default Order
+export default OrderTab

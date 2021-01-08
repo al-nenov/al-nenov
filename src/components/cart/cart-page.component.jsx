@@ -9,7 +9,7 @@ import { Table, Button, Row, Col } from 'react-bootstrap'
 function Cart() {
     const [cartTotal, setCartTotal] = useState(0)
     const dispatch = useDispatch()
-    const cart = useSelector((state) => state.cart)
+    const cart = useSelector((state) => state.cart.cartItems)
 
     useEffect(() => {
         let total = 0

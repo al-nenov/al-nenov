@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import OrdersList from '../orders/orders-tab.component'
+import OrdersList from '../orders/orders-list.component'
 import FavoritesList from '../favorites/favorites-list.component'
 import { Tabs, Tab } from 'react-bootstrap'
 

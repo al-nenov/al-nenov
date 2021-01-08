@@ -4,10 +4,10 @@ import { Button } from 'react-bootstrap'
 import { addToCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 
-function AddToCart(props) {
+function AddToCart({product}) {
     const dispatch = useDispatch()
     function handleClick() {
-        dispatch(addToCart(props.product))
+        dispatch(addToCart(product))
     }
 
     return (

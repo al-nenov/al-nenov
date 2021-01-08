@@ -6,7 +6,7 @@ import { logOut } from '../../redux/user/user.actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Header() {
-    const cartItems = useSelector((state) => state.cart)
+    const cartItems = useSelector((state) => state.cart.cartItems)
     const auth = useSelector((state) => state.userAuth)
     const dispatch = useDispatch()
 

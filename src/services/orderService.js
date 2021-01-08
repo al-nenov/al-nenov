@@ -35,5 +35,6 @@ async function completeOrder(items) {
 }
 
 function getOrders() {
-    return JSON.parse(localStorage.user).orders
+    const user = JSON.parse(localStorage.user)
+    return user.orders
 }

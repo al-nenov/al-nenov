@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, Button } from 'react-bootstrap'
 import ProductPrice from '../product/product-price.component'
-import { completeOrder } from '../../redux/cart/cart.actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -11,7 +10,7 @@ function CartTotals(props) {
     const loggedIn = useSelector((state) => state.userAuth.loggedIn)
 
     function handleClick() {
-        loggedIn && dispatch(completeOrder(props.items))
+        // TODO habdle complete order
     }
 
     return (
