@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['userAuth', 'cart', 'favorites']
+    whitelist: ['cart', 'favorites']
 }
 
 const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__

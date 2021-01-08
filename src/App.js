@@ -17,11 +17,9 @@ function App() {
 
     useEffect(() => {
         let unsubscribeFromAuth = firebase.auth().onAuthStateChanged(async (user) => {
-            console.log(user)
             if (user) {
                 const userRef = await addUserToFirestore(user)
                 userRef.onSnapshot((snapshot) => {
-                    console.log(snapshot)
                     dispatch(
                         setCurrentUser({
                             id: snapshot.id,
