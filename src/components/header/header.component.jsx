@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { logOut } from '../../actions/userActions'
+import { logOut } from '../../redux/user/user.actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Header() {

@@ -1,5 +1,5 @@
-import { USER } from '../services/userService'
-import { USER_TYPES } from './userTypes'
+import { USER } from '../../services/userService'
+import { USER_TYPES } from './user.types'
 
 export function loginUser(username, password, setError) {
     return (dispatch) => {

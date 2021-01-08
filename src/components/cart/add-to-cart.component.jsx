@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'react-bootstrap'
-import { addToCart } from '../../actions/cartActions'
+import { addToCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 
 function AddToCart(props) {

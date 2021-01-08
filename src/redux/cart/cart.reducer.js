@@ -1,4 +1,4 @@
-import { CART_TYPES } from '../actions/cartTypes'
+import { CART_TYPES } from './cart.types'
 const cart = []
 
 const cartReducer = function (state = cart, action) {

@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 
 import About from '../../pages/about/about-page.component'
-import PrivateRoute from '../private-route.component'
+import PrivateRoute from '../private-route/private-route.component'
 import ProductsList from '../product/product-list.component'
 import ProductPage from '../product/product-page.component'
 import Login from '../../pages/login/login-page.component'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ProductPrice from '../product/product-price.component'
 import { Figure, NavLink } from 'react-bootstrap'
-import { removeFromCart } from '../../actions/cartActions'
+import { removeFromCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 

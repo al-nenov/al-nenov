@@ -1,6 +1,6 @@
-import { store } from '../redux'
-import { CART_TYPES } from './cartTypes'
-import { ORDER } from '../services/orderService'
+import { store } from '../../redux'
+import { CART_TYPES } from './cart.types'
+import { ORDER } from '../../services/orderService'
 import { toast } from 'react-toastify'
 
 function getCartItems() {

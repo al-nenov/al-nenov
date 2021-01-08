@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { emptyCart } from '../../actions/cartActions'
+import { emptyCart } from '../../redux/cart/cart.actions'
 import CartTotals from './cart-totals.component'
 import CartItem from './cart-item.component'
 import { Table, Button, Row, Col } from 'react-bootstrap'

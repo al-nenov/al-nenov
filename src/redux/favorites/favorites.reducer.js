@@ -1,4 +1,4 @@
-import { FAVORITES_TYPES } from '../actions/favoritesTypes'
+import { FAVORITES_TYPES } from './favorites.types'
 let favorites = []
 
 const favoritesReducer = function (state = favorites, action) {

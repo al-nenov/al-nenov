@@ -1,4 +1,4 @@
-import Products from '../products/products.json'
+import Products from '../../products/products.json'
 
 const initalState = {
     allProducts: Products

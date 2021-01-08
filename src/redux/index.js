@@ -3,10 +3,10 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 
-import { productsReducer } from './productsReducer'
-import { userReducer } from './userReducer'
-import { cartReducer } from './cartReducer'
-import { favoritesReducer } from './favoritesReducer'
+import { productsReducer } from './products/products.reducer'
+import { userReducer } from './user/user.reducer'
+import { cartReducer } from './cart/cart.reducer'
+import { favoritesReducer } from './favorites/favorites.reducer'
 
 const rootReducer = combineReducers({
     products: productsReducer,

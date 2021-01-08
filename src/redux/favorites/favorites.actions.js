@@ -1,5 +1,5 @@
-import { USER } from '../services/userService'
-import { FAVORITES_TYPES } from './favoritesTypes'
+import { USER } from '../../services/userService'
+import { FAVORITES_TYPES } from './favorites.types'
 
 export function toggleFavorite(product_id) {
     return (dispatch) => {

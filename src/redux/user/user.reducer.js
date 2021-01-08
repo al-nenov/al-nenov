@@ -1,4 +1,4 @@
-import { USER_TYPES } from '../actions/userTypes'
+import { USER_TYPES } from './user.types'
 
 const initialState = {
     loggedIn: !!localStorage.user,
