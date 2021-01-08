@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from 'react-bootstrap';
 import {useSelector} from 'react-redux';
-import FavoriteItem from './FavoriteItem';
+import FavoriteItem from './favorite-item.component';
 
 function FavoritesList() {
     const favoritesList = useSelector(state => state.favorites);

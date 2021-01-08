@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {Card, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import AddToCart from '../cart/AddToCart';
-import ProductPrice from './ProductPrice';
-import AddToFavorites from '../AddToFavorites';
+import AddToCart from '../cart/add-to-cart.component';
+import ProductPrice from './product-price.component';
+import AddToFavorites from '../../components/favorites/add-to-favorites.component';
  
 function Product(props) {
     return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import './assets/css/App.scss';
 
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import Header from './components/header/header.component';
+import Main from './components/main/main.component';
+import Footer from './components/footer/footer.component';
 
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';

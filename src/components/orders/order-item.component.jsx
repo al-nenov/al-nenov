@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import ProductPrice from '../product/ProductPrice';
-import {Figure, NavLink} from 'react-bootstrap';
-import {removeFromCart} from '../../actions/cartActions';
-import {useDispatch} from 'react-redux';
+import ProductPrice from '../product/product-price.component';
+import {Figure} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-function CartItem(props) {
-    const dispatch = useDispatch();
-
-    function handleClick(id) {
-        dispatch(removeFromCart(id))
-    }
-    const productItem = 
+function OrderItem(props) {
+    const productItem = (
         <Link to={`product/${props.item.id}`}>
             <Figure className="mx-2">
                 <Figure.Image
@@ -24,10 +16,10 @@ function CartItem(props) {
             </Figure>
             {props.item.title}
         </Link>
-
+    )
     return (
+
         <tr>
-            <td><NavLink onClick={() => handleClick(props.item.id)}><FontAwesomeIcon icon="times"/></NavLink></td>
             <td>{props.item.id}</td>
             <td>{productItem}</td>
             <td><ProductPrice price={props.item.price} /></td>
@@ -37,8 +29,8 @@ function CartItem(props) {
     )
 }
 
-CartItem.propTypes = {
+OrderItem.propTypes = {
     item: PropTypes.object.isRequired
 }
 
-export default CartItem
+export default OrderItem

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Card, Button} from 'react-bootstrap';
-import ProductPrice from '../product/ProductPrice';
+import ProductPrice from '../product/product-price.component';
 import {completeOrder} from '../../actions/cartActions';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';

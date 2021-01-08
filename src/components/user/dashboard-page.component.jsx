@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import OrdersList from '../orders/OrdersList';
-import FavoritesList from '../favorites/FavoritesList';
+import OrdersList from '../orders/orders-tab.component';
+import FavoritesList from '../favorites/favorites-list.component';
 import {Tabs, Tab} from 'react-bootstrap';
 
 function Dashboard() {

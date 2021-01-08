@@ -5,7 +5,7 @@ import {Row} from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import {connect} from 'react-redux';
 
-import Product from './Product';
+import Product from './product-item.component';
 
 
 function ProductsList(props) {
