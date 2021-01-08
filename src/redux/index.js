@@ -7,12 +7,14 @@ import { productsReducer } from './products/products.reducer'
 import { userReducer } from './user/user.reducer'
 import { cartReducer } from './cart/cart.reducer'
 import { favoritesReducer } from './favorites/favorites.reducer'
+import { ordersReducer } from './orders/orders.reducer'
 
 const rootReducer = combineReducers({
     products: productsReducer,
     userAuth: userReducer,
     cart: cartReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    orders: ordersReducer
 })
 
 const persistConfig = {

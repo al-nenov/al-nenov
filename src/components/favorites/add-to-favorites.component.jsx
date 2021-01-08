@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import useHover from '../../hooks/useHover'
-import useFavorites from '../../hooks/useFavorites'
+
 import { toggleFavorite } from '../../redux/favorites/favorites.actions'
 
 function AddToFavorites(props) {
     const dispatch = useDispatch()
     const [hovered, ref] = useHover()
-    const [favorites] = useFavorites(props.product)
+    const favorites = useSelector(state => state.favorites)
     const favorited = favorites.some((id) => id === props.product)
 
     const favIcon = hovered || favorited ? ['fas', 'heart'] : ['far', 'heart']

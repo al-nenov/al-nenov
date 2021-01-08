@@ -1,9 +1,9 @@
 import React from 'react'
-import { ORDER } from '../../services/orderService'
+import { useSelector } from 'react-redux'
 import OrderItem from './order-item.component'
 
 function OrdersList() {
-    const ordersList = ORDER.ORDERS_LIST()
+    const ordersList = useSelector(state => state.orders)
 
     const orders = ordersList.map((order) => {
         return <OrderItem key={order.id} order={order} />
