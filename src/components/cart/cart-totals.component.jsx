@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function CartTotals(props) {
     const dispatch = useDispatch()
-    const loggedIn = useSelector((state) => state.userAuth.loggedIn)
+    const loggedIn = useSelector((state) => state.userAuth.currentUser)
 
     function handleClick() {
         // TODO habdle complete order

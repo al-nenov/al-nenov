@@ -13,8 +13,7 @@ import Cart from '../cart/cart-page.component'
 import Dashboard from '../user/dashboard-page.component'
 
 function Main() {
-    const user = useSelector((state) => state.userAuth)
-    const loggedIn = user.loggedIn
+    const user = useSelector((state) => state.userAuth.currentUser)
     return (
         <Container className="p-4">
             <Switch>
@@ -26,10 +25,10 @@ function Main() {
                     <Dashboard />
                 </PrivateRoute>
                 <Route path="/login" component={Login}>
-                    {loggedIn && <Redirect to="/" />}
+                    {user && <Redirect to="/" />}
                 </Route>
                 <Route path="/signup" component={Signup}>
-                    {loggedIn && <Redirect to="/" />}
+                    {user && <Redirect to="/" />}
                 </Route>
             </Switch>
         </Container>

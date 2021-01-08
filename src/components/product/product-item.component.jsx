@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, Col } from 'react-bootstrap'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import AddToCart from '../cart/add-to-cart.component'
 import ProductPrice from './product-price.component'
 import AddToFavorites from '../../components/favorites/add-to-favorites.component'
 
 function Product(props) {
+    const loggedIn = useSelector((state) => state.userAuth.currentUser)
     return (
         <Col md={4} sm={'auto'} className="product mb-5">
             <Card>
-                {props.loggedIn && <AddToFavorites product={props.id} />}
+                {loggedIn ? <AddToFavorites product={props.id} /> : null}
                 <Link to={`product/${props.id}`}>
                     <Card.Img
                         variant="top"
@@ -30,13 +31,8 @@ function Product(props) {
         </Col>
     )
 }
-function mapStateToProps(globalState) {
-    return {
-        loggedIn: globalState.userAuth.loggedIn
-    }
-}
+
 Product.propTypes = {
-    loggedIn: PropTypes.bool.isRequired,
     id: PropTypes.number.isRequired,
     image: PropTypes.string,
     title: PropTypes.string,
@@ -44,4 +40,4 @@ Product.propTypes = {
     price: PropTypes.number.isRequired
 }
 
-export default connect(mapStateToProps, {})(Product)
+export default Product

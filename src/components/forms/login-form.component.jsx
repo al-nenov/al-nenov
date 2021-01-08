@@ -4,11 +4,11 @@ import { Form, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
 function LoginForm(props) {
-    const { register, handleSubmit, errors, setError } = useForm({
+    const { register, handleSubmit, errors, setError, reset } = useForm({
         mode: 'onBlur'
     })
     const onSubmit = (data, event) => {
-        props.action(data.username, data.password, setError)
+        props.action(data, setError, reset)
     }
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>

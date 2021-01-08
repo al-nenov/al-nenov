@@ -1,21 +1,14 @@
 import { USER_TYPES } from './user.types'
 
 const initialState = {
-    loggedIn: !!localStorage.user,
-    user: localStorage.user ? JSON.parse(localStorage.user) : {}
+    currentUser: null
 }
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case USER_TYPES.LOG_IN_USER:
+        case USER_TYPES.SET_CURRENT_USER:
             return {
-                loggedIn: true,
-                user: action.payload
-            }
-        case USER_TYPES.LOG_OUT:
-            return {
-                loggedIn: false,
-                user: {}
+                currentUser: action.payload
             }
         default:
             return state

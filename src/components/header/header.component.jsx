@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Header() {
     const cartItems = useSelector((state) => state.cart.cartItems)
-    const auth = useSelector((state) => state.userAuth)
+    const auth = useSelector((state) => state.userAuth.currentUser)
     const dispatch = useDispatch()
 
     function handleClick() {
@@ -54,10 +54,10 @@ function Header() {
                             <FontAwesomeIcon icon="shopping-basket" />
                             {cartItemsCounter}
                         </NavLink>
-                        {auth.loggedIn && log_Out}
-                        {auth.loggedIn ? (
+                        {auth && log_Out}
+                        {auth ? (
                             <Navbar.Text>
-                                Signed in as: <Link to="/dashboard">{auth.user}</Link>
+                                Signed in as: <Link to="/dashboard">{auth.displayName}</Link>
                             </Navbar.Text>
                         ) : (
                             log_In
