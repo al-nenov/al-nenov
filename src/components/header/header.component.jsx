@@ -3,10 +3,9 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { NavLink, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logOut } from '../../redux/user/user.actions'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import CartItemsIcon from '../cart/cart-items-icon.component'
 
-function Header() {
-    const cartItems = useSelector((state) => state.cart.cartItems)
+const Header = () => {
     const auth = useSelector((state) => state.userAuth.currentUser)
     const dispatch = useDispatch()
 
@@ -23,9 +22,6 @@ function Header() {
         <NavLink className="nav-link" to="/login">
             Login
         </NavLink>
-    )
-    const cartItemsCounter = cartItems.length > 0 && (
-        <span className="cart-items_counter">{cartItems.length}</span>
     )
 
     return (
@@ -51,8 +47,7 @@ function Header() {
                     </Nav>
                     <Nav className="justify-content-end">
                         <NavLink className="nav-link cart-items mr-2" to="/cart">
-                            <FontAwesomeIcon icon="shopping-basket" />
-                            {cartItemsCounter}
+                            <CartItemsIcon />
                         </NavLink>
                         {auth && log_Out}
                         {auth ? (
