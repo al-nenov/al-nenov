@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Card, Row, Col, Figure } from 'react-bootstrap'
-import AddToCart from '../cart/add-to-cart.component'
+import AddToCart from './add-to-cart.component'
 import ProductPrice from './product-price.component'
 
 function ProductPage(props) {
