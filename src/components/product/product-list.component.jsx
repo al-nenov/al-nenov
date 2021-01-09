@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
-// import Pagination from 'react-js-pagination'
 import Pagination from '@material-ui/lab/Pagination'
 
 import Product from './product-item.component'

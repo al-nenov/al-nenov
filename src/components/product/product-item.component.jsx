@@ -13,7 +13,7 @@ function Product(props) {
     return (
         <Col md={4} sm={'auto'} className="product mb-5">
             <Card>
-                {loggedIn ? <AddToFavorites product={props.id} /> : null}
+                {loggedIn ? <AddToFavorites productId={props.id} /> : null}
                 <Link to={`product/${props.id}`}>
                     <Card.Img
                         variant="top"

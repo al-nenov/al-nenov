@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Card, Row, Col, Figure } from 'react-bootstrap'
 import AddToCart from './add-to-cart.component'
+import AddToFavorites from '../../components/favorites/add-to-favorites.component'
 import ProductPrice from './product-price.component'
 
 function ProductPage(props) {
     const productId = parseInt(props.match.params.id)
     const product = props.products.find((product) => product.id === productId)
+    const loggedIn = useSelector((state) => state.userAuth.currentUser)
 
     if (!product) {
         return <Redirect to="/not-found" />
@@ -36,6 +38,7 @@ function ProductPage(props) {
                         <Card.Text>Color: {product.color}</Card.Text>
                         <AddToCart product={product} />
                     </Card.Body>
+                    {loggedIn ? <AddToFavorites productId={product.id} /> : null}
                 </Card>
             </Col>
         </Row>
