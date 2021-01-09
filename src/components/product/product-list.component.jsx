@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'react-bootstrap'
-import Pagination from 'react-js-pagination'
 import { connect } from 'react-redux'
+
+// import Pagination from 'react-js-pagination'
+import Pagination from '@material-ui/lab/Pagination'
 
 import Product from './product-item.component'
 
@@ -19,7 +21,7 @@ function ProductsList(props) {
         return <Product key={product.id} {...product} />
     })
 
-    function handlePageChange(pageNumber) {
+    function handlePageChange(ev, pageNumber) {
         setActivePage(pageNumber)
         const lastProduct = pageNumber * itemsPerPage
         const firstProduct = lastProduct - itemsPerPage
@@ -30,12 +32,9 @@ function ProductsList(props) {
         <>
             <Row className="justify-content-center products">{products}</Row>
             <Pagination
-                activePage={activePage}
-                itemClass="page-item"
-                linkClass="page-link"
-                itemsCountPerPage={itemsPerPage}
-                totalItemsCount={props.allProducts.length}
-                pageRangeDisplayed={5}
+                color="primary"
+                page={activePage}
+                count={props.allProducts.length / itemsPerPage}
                 onChange={handlePageChange}
             />
         </>
