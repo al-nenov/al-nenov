@@ -6,7 +6,7 @@ import CartTotals from './cart-totals.component'
 import CartItem from './cart-item.component'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 
-function Cart() {
+const Cart = () => {
     const [cartTotal, setCartTotal] = useState(0)
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart.cartItems)
@@ -23,7 +23,7 @@ function Cart() {
         return <Redirect to="/" />
     }
 
-    function handleEmptyCart() {
+    const handleEmptyCart = () => {
         dispatch(emptyCart())
     }
 

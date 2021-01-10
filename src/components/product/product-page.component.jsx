@@ -7,10 +7,11 @@ import AddToCart from './add-to-cart.component'
 import AddToFavorites from '../../components/favorites/add-to-favorites.component'
 import ProductPrice from './product-price.component'
 
-function ProductPage(props) {
-    const productId = parseInt(props.match.params.id)
-    const product = props.products.find((product) => product.id === productId)
+const ProductPage = ({ products, match }) => {
+    const productId = parseInt(match.params.id)
+    const product = products.find((product) => product.id === productId)
     const loggedIn = useSelector((state) => state.userAuth.currentUser)
+    const { image, title, description, price, color, id } = product
 
     if (!product) {
         return <Redirect to="/not-found" />
@@ -21,7 +22,7 @@ function ProductPage(props) {
             <Col md={6} sl={'auto'}>
                 <Figure>
                     <Figure.Image
-                        src={process.env.PUBLIC_URL + '/images/products/' + product.image}
+                        src={process.env.PUBLIC_URL + '/images/products/' + image}
                         fluid={true}
                     />
                 </Figure>
@@ -30,26 +31,24 @@ function ProductPage(props) {
             <Col md={6} sl={'auto'}>
                 <Card>
                     <Card.Body>
-                        <Card.Title>{product.title}</Card.Title>
-                        <Card.Text>{product.description}</Card.Text>
+                        <Card.Title>{title}</Card.Title>
+                        <Card.Text>{description}</Card.Text>
                         <Card.Text>
-                            Price: <ProductPrice price={product.price} />
+                            Price: <ProductPrice price={price} />
                         </Card.Text>
-                        <Card.Text>Color: {product.color}</Card.Text>
+                        <Card.Text>Color: {color}</Card.Text>
                         <AddToCart product={product} />
                     </Card.Body>
-                    {loggedIn ? <AddToFavorites productId={product.id} /> : null}
+                    {loggedIn ? <AddToFavorites productId={id} /> : null}
                 </Card>
             </Col>
         </Row>
     )
 }
-function mapStateToProps(globalState) {
-    return {
-        products: globalState.products.allProducts,
-        cart: globalState.cart
-    }
-}
+const mapStateToProps = (globalState) => ({
+    products: globalState.products.allProducts,
+    cart: globalState.cart
+})
 
 ProductPage.propTypes = {
     products: PropTypes.array.isRequired

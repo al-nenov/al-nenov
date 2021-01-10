@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function ProductPrice(props) {
-    const price = props.price.toFixed(2)
-    const currency = props.currency || 'лв.'
+const ProductPrice = ({ price, currency = 'лв.' }) => {
+    price = price.toFixed(2)
 
     return (
         <span className="product-price">

@@ -9,7 +9,7 @@ const Header = () => {
     const auth = useSelector((state) => state.userAuth.currentUser)
     const dispatch = useDispatch()
 
-    function handleClick() {
+    const handleClick = () => {
         dispatch(logOut())
     }
 

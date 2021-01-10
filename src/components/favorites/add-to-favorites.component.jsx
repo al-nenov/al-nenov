@@ -8,19 +8,20 @@ import { toggleFavorite } from '../../redux/favorites/favorites.actions'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined'
 import IconButton from '@material-ui/core/IconButton'
-function AddToFavorites(props) {
+
+const AddToFavorites = ({ productId }) => {
     const dispatch = useDispatch()
     const [hovered, ref] = useHover()
     const favorites = useSelector((state) => state.favorites)
-    const favorited = favorites.some((id) => id === props.productId)
+    const favorited = favorites.some((id) => id === productId)
 
-    function handleClick(id) {
+    const handleClick = (id) => {
         dispatch(toggleFavorite(id))
     }
 
     return (
         <span ref={ref} className="favorites-icon">
-            <IconButton onClick={() => handleClick(props.productId)} style={{ color: 'red' }}>
+            <IconButton onClick={() => handleClick(productId)} style={{ color: 'red' }}>
                 {hovered || favorited ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
             </IconButton>
         </span>

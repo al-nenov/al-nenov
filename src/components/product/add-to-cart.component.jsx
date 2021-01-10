@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button'
 import { addToCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 
-function AddToCart({product}) {
+const AddToCart = ({ product }) => {
     const dispatch = useDispatch()
-    function handleClick() {
+    const handleClick = () => {
         dispatch(addToCart(product))
     }
 

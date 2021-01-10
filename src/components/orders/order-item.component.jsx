@@ -4,29 +4,29 @@ import ProductPrice from '../product/product-price.component'
 import { Figure } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-function OrderItem(props) {
+const OrderItem = ({ item: { id, image, title, price, qty } }) => {
     const productItem = (
-        <Link to={`product/${props.item.id}`}>
+        <Link to={`product/${id}`}>
             <Figure className="mx-2">
                 <Figure.Image
                     width={50}
-                    src={process.env.PUBLIC_URL + '/images/products/' + props.item.image}
+                    src={process.env.PUBLIC_URL + '/images/products/' + image}
                     fluid={true}
                 />
             </Figure>
-            {props.item.title}
+            {title}
         </Link>
     )
     return (
         <tr>
-            <td>{props.item.id}</td>
+            <td>{id}</td>
             <td>{productItem}</td>
             <td>
-                <ProductPrice price={props.item.price} />
+                <ProductPrice price={price} />
             </td>
-            <td>{props.item.qty}</td>
+            <td>{qty}</td>
             <td>
-                <ProductPrice price={props.item.price * props.item.qty} />
+                <ProductPrice price={price * qty} />
             </td>
         </tr>
     )

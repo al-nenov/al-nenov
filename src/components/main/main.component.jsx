@@ -12,7 +12,7 @@ import Signup from '../../pages/signup/signup-page.component'
 import Cart from '../cart/cart-page.component'
 import Dashboard from '../user/dashboard-page.component'
 
-function Main() {
+const Main = () => {
     const user = useSelector((state) => state.userAuth.currentUser)
     return (
         <Container className="p-4">

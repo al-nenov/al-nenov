@@ -1,4 +1,4 @@
-export function addToCart(cartItems, itemToAdd) {
+export const addToCart = (cartItems, itemToAdd) => {
     const existingItem = cartItems.find((item) => item.id === itemToAdd.id)
 
     if (existingItem) {
@@ -10,6 +10,4 @@ export function addToCart(cartItems, itemToAdd) {
     }
 }
 
-export function removeFromCart(cartItems, id) {
-    return cartItems.filter((item) => item.id !== id)
-}
+export const removeFromCart = (cartItems, id) => cartItems.filter((item) => item.id !== id)

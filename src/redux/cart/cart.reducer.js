@@ -1,20 +1,19 @@
-import {CART_TYPES} from '../cart/cart.types';
-import {addToCart, removeFromCart} from './cart.utils'
+import { CART_TYPES } from '../cart/cart.types'
+import { addToCart, removeFromCart } from './cart.utils'
 
 const INITIAL_STATE = {
     cartItems: []
-};
+}
 
-
-const cartReducer = function(state = INITIAL_STATE, action) {
+const cartReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CART_TYPES.ADD_PRODUCT_TO_CART: {           
+        case CART_TYPES.ADD_PRODUCT_TO_CART: {
             return {
                 ...state,
                 cartItems: addToCart(state.cartItems, action.payload)
             }
         }
-        case CART_TYPES.REMOVE_ITEM_FROM_CART: {            
+        case CART_TYPES.REMOVE_ITEM_FROM_CART: {
             return {
                 ...state,
                 cartItems: removeFromCart(state.cartItems, action.payload)
@@ -26,8 +25,9 @@ const cartReducer = function(state = INITIAL_STATE, action) {
                 cartItems: []
             }
         }
-        default: return state
+        default:
+            return state
     }
 }
 
-export {cartReducer}
+export { cartReducer }

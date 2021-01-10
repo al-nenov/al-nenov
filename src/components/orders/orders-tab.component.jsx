@@ -4,15 +4,15 @@ import OrderItem from './order-item.component'
 import { Table } from 'react-bootstrap'
 import ProductPrice from '../product/product-price.component'
 
-function OrderTab(props) {
+const OrderTab = ({ order: { items, id } }) => {
     let orderTotal = 0
-    let orderItems = props.order.items.map((item) => {
+    let orderItems = items.map((item) => {
         orderTotal += item.qty * item.price
         return <OrderItem key={item.id} item={item} />
     })
     return (
         <div>
-            <h5>Order # {props.order.id}</h5>
+            <h5>Order # {id}</h5>
             <Table>
                 <tbody>
                     <tr>

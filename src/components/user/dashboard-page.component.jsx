@@ -4,12 +4,12 @@ import OrdersList from '../orders/orders-list.component'
 import FavoritesList from '../favorites/favorites-list.component'
 import { Tabs, Tab } from 'react-bootstrap'
 
-function Dashboard() {
-    const user = useSelector((state) => state.userAuth)
+const Dashboard = () => {
+    const user = useSelector((state) => state.userAuth.currentUser)
 
     return (
         <>
-            <h1>Hello, {user.user}</h1>
+            <h1>Hello, {user.displayName || 'guest'}</h1>
 
             <Tabs defaultActiveKey="order" id="">
                 <Tab eventKey={'order'} title="Orders">

@@ -5,11 +5,11 @@ import ProductPrice from '../product/product-price.component'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-function CartTotals(props) {
+const CartTotals = ({ total }) => {
     const dispatch = useDispatch()
     const loggedIn = useSelector((state) => state.userAuth.currentUser)
 
-    function handleClick() {
+    const handleClick = () => {
         // TODO habdle complete order
     }
 
@@ -17,7 +17,7 @@ function CartTotals(props) {
         <Card className="p-4">
             <h5>Cart Totals:</h5>
             <p>
-                Total : <ProductPrice price={props.total} />
+                Total : <ProductPrice price={total} />
             </p>
             {!loggedIn && (
                 <div>

@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import FavoriteItem from './favorite-item.component'
 
-function FavoritesList() {
+const FavoritesList = () => {
     const favoritesList = useSelector((state) => state.favorites)
     const products = useSelector((state) => state.products.allProducts)
 

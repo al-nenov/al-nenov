@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import firebase from '../../firebase/firebase.app'
 
-function Login() {
+const Login = () => {
     const login_user = async (data, setError) => {
         const { username, password } = data
         try {

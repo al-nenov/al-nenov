@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { Form, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
-function LoginForm(props) {
+const LoginForm = ({ action }) => {
     const { register, handleSubmit, errors, setError, reset } = useForm({
         mode: 'onBlur'
     })
     const onSubmit = (data, event) => {
-        props.action(data, setError, reset)
+        action(data, setError, reset)
     }
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>

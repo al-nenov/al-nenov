@@ -7,20 +7,20 @@ import Pagination from '@material-ui/lab/Pagination'
 
 import Product from './product-item.component'
 
-function ProductsList(props) {
+const ProductsList = ({ allProducts }) => {
     const itemsPerPage = 6
     const [activePage, setActivePage] = useState(1)
     const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0, itemsPerPage))
 
     function getCurrentProducts(firstProduct, lastProduct) {
-        return props.allProducts.slice(firstProduct, lastProduct)
+        return allProducts.slice(firstProduct, lastProduct)
     }
 
     const products = activeProducts.map((product) => {
         return <Product key={product.id} {...product} />
     })
 
-    function handlePageChange(ev, pageNumber) {
+    const handlePageChange = (ev, pageNumber) => {
         setActivePage(pageNumber)
         const lastProduct = pageNumber * itemsPerPage
         const firstProduct = lastProduct - itemsPerPage
@@ -33,17 +33,13 @@ function ProductsList(props) {
             <Pagination
                 color="primary"
                 page={activePage}
-                count={props.allProducts.length / itemsPerPage}
+                count={allProducts.length / itemsPerPage}
                 onChange={handlePageChange}
             />
         </>
     )
 }
-function mapStateToProps(globalState) {
-    return {
-        allProducts: globalState.products.allProducts
-    }
-}
+const mapStateToProps = (globalState) => ({ allProducts: globalState.products.allProducts })
 
 ProductsList.propTypes = {
     allProducts: PropTypes.array.isRequired

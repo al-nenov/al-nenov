@@ -7,40 +7,42 @@ import { removeFromCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-function CartItem(props) {
+const CartItem = ({ item }) => {
+    const { id, image, title, qty, price } = item
     const dispatch = useDispatch()
 
-    function handleClick(id) {
+    const handleClick = (id) => {
         dispatch(removeFromCart(id))
     }
+
     const productItem = (
-        <Link to={`product/${props.item.id}`}>
+        <Link to={`product/${id}`}>
             <Figure className="mx-2">
                 <Figure.Image
                     width={50}
-                    src={process.env.PUBLIC_URL + '/images/products/' + props.item.image}
+                    src={process.env.PUBLIC_URL + '/images/products/' + image}
                     fluid={true}
                 />
             </Figure>
-            {props.item.title}
+            {title}
         </Link>
     )
 
     return (
         <tr>
             <td>
-                <NavLink onClick={() => handleClick(props.item.id)}>
+                <NavLink onClick={() => handleClick(id)}>
                     <FontAwesomeIcon icon="times" />
                 </NavLink>
             </td>
-            <td>{props.item.id}</td>
+            <td>{id}</td>
             <td>{productItem}</td>
             <td>
-                <ProductPrice price={props.item.price} />
+                <ProductPrice price={price} />
             </td>
-            <td>{props.item.qty}</td>
+            <td>{qty}</td>
             <td>
-                <ProductPrice price={props.item.price * props.item.qty} />
+                <ProductPrice price={price * qty} />
             </td>
         </tr>
     )

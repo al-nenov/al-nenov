@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-function Signup() {
+const Signup = () => {
     const dispatch = useDispatch()
 
     const signup_user = (username, password, setError) => {
