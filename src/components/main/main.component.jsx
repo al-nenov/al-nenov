@@ -9,7 +9,7 @@ import ProductsList from '../product/product-list.component'
 import ProductPage from '../product/product-page.component'
 import Login from '../../pages/login/login-page.component'
 import Signup from '../../pages/signup/signup-page.component'
-import Cart from '../cart/cart-page.component'
+import CheckoutItems from '../checkout/checkout-items.component'
 import Dashboard from '../user/dashboard-page.component'
 
 const Main = () => {
@@ -21,7 +21,7 @@ const Main = () => {
                 <Route exact path="/" component={ProductsList} />
                 <Route path="/about" component={About} />
                 <Route path="/product/:id" component={ProductPage} />
-                <Route path="/cart" component={Cart} />
+                <Route path="/cart" component={CheckoutItems} />
                 <PrivateRoute path="/dashboard">
                     <Dashboard />
                 </PrivateRoute>

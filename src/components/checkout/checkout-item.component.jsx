@@ -7,7 +7,7 @@ import { removeFromCart } from '../../redux/cart/cart.actions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const CartItem = ({ item }) => {
+const CheckoutItem = ({ item }) => {
     const { id, image, title, qty, price } = item
     const dispatch = useDispatch()
 
@@ -48,8 +48,8 @@ const CartItem = ({ item }) => {
     )
 }
 
-CartItem.propTypes = {
+CheckoutItem.propTypes = {
     item: PropTypes.object.isRequired
 }
 
-export default CartItem
+export default CheckoutItem

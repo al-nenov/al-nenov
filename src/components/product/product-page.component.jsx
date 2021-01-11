@@ -11,11 +11,12 @@ const ProductPage = ({ products, match }) => {
     const productId = parseInt(match.params.id)
     const product = products.find((product) => product.id === productId)
     const loggedIn = useSelector((state) => state.userAuth.currentUser)
-    const { image, title, description, price, color, id } = product
-
+    
     if (!product) {
         return <Redirect to="/not-found" />
     }
+    
+    const { image, title, description, price, color, id } = product
 
     return (
         <Row>

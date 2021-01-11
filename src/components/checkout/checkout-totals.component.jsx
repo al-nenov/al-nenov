@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Card, Button } from 'react-bootstrap'
 import ProductPrice from '../product/product-price.component'
+import StripeCheckoutButton from '../stripe-button/stripe-button.component'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const CartTotals = ({ total }) => {
+const CheckoutTotals = ({ total }) => {
     const dispatch = useDispatch()
     const loggedIn = useSelector((state) => state.userAuth.currentUser)
 
@@ -25,6 +26,7 @@ const CartTotals = ({ total }) => {
                     <Link to="/login">Login here</Link>
                 </div>
             )}
+            <StripeCheckoutButton price={total} />
             <Button variant="secondary" onClick={handleClick} disabled={!loggedIn}>
                 Complete order
             </Button>
@@ -32,9 +34,9 @@ const CartTotals = ({ total }) => {
     )
 }
 
-CartTotals.propTypes = {
+CheckoutTotals.propTypes = {
     items: PropTypes.array.isRequired,
     total: PropTypes.number.isRequired
 }
 
-export default CartTotals
+export default CheckoutTotals

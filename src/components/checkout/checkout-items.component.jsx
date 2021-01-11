@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { emptyCart } from '../../redux/cart/cart.actions'
-import CartTotals from './cart-totals.component'
-import CartItem from './cart-item.component'
+import CheckoutTotals from './checkout-totals.component'
+import CheckoutItem from './checkout-item.component'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 
-const Cart = () => {
+const CheckoutItems = () => {
     const [cartTotal, setCartTotal] = useState(0)
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart.cartItems)
@@ -28,12 +28,12 @@ const Cart = () => {
     }
 
     const cartItems = cart.map((item) => {
-        return <CartItem key={item.id} item={item} />
+        return <CheckoutItem key={item.id} item={item} />
     })
 
     return (
         <>
-            <h3 className="py-3">Cart page</h3>
+            <h3 className="py-3">Checkout</h3>
             <Table>
                 <thead>
                     <tr>
@@ -55,11 +55,11 @@ const Cart = () => {
                     </Button>
                 </Col>
                 <Col>
-                    <CartTotals total={cartTotal} items={cart} />
+                    <CheckoutTotals total={cartTotal} items={cart} />
                 </Col>
             </Row>
         </>
     )
 }
 
-export default Cart
+export default CheckoutItems
