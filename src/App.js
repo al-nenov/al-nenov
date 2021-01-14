@@ -8,34 +8,14 @@ import Footer from './components/footer/footer.component'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { setCurrentUser } from './redux/user/user.actions'
-import firebase from './firebase/firebase.app'
-import { addUserToFirestore } from './firebase/firebase.utils'
+import { checkAuthSession } from './redux/user/user.actions'
 
 function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        let unsubscribeFromAuth = firebase.auth().onAuthStateChanged(async (user) => {
-            if (user) {
-                const userRef = await addUserToFirestore(user)
-                userRef.onSnapshot((snapshot) => {
-                    dispatch(
-                        setCurrentUser({
-                            id: snapshot.id,
-                            ...snapshot.data()
-                        })
-                    )
-                })
-            } else {
-                dispatch(setCurrentUser(user))
-            }
-        })
-
-        return () => {
-            unsubscribeFromAuth()
-        }
-    })
+        dispatch(checkAuthSession())
+    }, [])
 
     return (
         <>

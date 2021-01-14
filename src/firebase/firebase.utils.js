@@ -1,6 +1,15 @@
-import firebase from './firebase.app'
+import firebase, { auth } from './firebase.app'
 
-export const addUserToFirestore = async (user, additionalData) => {
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+            unsubscribeFromAuth()
+            resolve(user)
+        }, reject)
+    })
+}
+
+export const createUserProfileDocument = async (user, additionalData) => {
     if (!user) return
     const { email, displayName } = user
     const userRef = firebase.firestore().collection('users').doc(user.uid)
@@ -22,6 +31,6 @@ export const addUserToFirestore = async (user, additionalData) => {
     return userRef
 }
 
-export const convertSnapshotToMap = snapshot => {
-    return snapshot.map(item => item.data())
+export const convertSnapshotToMap = (snapshot) => {
+    return snapshot.map((item) => item.data())
 }

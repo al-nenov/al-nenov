@@ -1,19 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import LoginForm from '../../components/forms/login-form.component'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
-import firebase from '../../firebase/firebase.app'
+import { loginUser } from '../../redux/user/user.actions'
 
 const Login = () => {
-    const login_user = async (data, setError) => {
-        const { username, password } = data
-        try {
-            await firebase.auth().signInWithEmailAndPassword(username, password)
-        } catch (error) {
-            setError('login', 'failed', error.message)
-        }
-    }
+    const dispatch = useDispatch()
+    const login_user = (emailAndPassword) => dispatch(loginUser(emailAndPassword))
 
     return (
         <Card className="p-5">

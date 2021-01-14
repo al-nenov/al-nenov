@@ -13,18 +13,18 @@ const LoginForm = ({ action }) => {
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group>
-                <Form.Label>Username</Form.Label>
+                <Form.Label>E-mail</Form.Label>
                 <Form.Control
-                    id="username"
+                    id="email"
                     ref={register({
                         required: 'Cannot be empty',
                         maxLength: 20
                     })}
-                    type="username"
-                    name="username"
-                    placeholder="Username"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
                 />
-                <p className="text-danger">{errors.username && errors.username.message}</p>
+                <p className="text-danger">{errors.email && errors.email.message}</p>
             </Form.Group>
 
             <Form.Group>
