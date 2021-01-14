@@ -21,3 +21,7 @@ export const addUserToFirestore = async (user, additionalData) => {
 
     return userRef
 }
+
+export const convertSnapshotToMap = snapshot => {
+    return snapshot.map(item => item.data())
+}

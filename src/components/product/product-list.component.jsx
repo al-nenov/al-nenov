@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -7,10 +7,18 @@ import Pagination from '@material-ui/lab/Pagination'
 
 import Product from './product-item.component'
 
-const ProductsList = ({ allProducts }) => {
+import { fetchProductsData } from '../../redux/products/products.actions'
+
+const ProductsList = ({ allProducts, fetchProductsData, isLoading }) => {
     const itemsPerPage = 6
     const [activePage, setActivePage] = useState(1)
     const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0, itemsPerPage))
+
+    useEffect(() => {
+        fetchProductsData()
+        
+    }, [])
+
 
     function getCurrentProducts(firstProduct, lastProduct) {
         return allProducts.slice(firstProduct, lastProduct)
@@ -29,6 +37,7 @@ const ProductsList = ({ allProducts }) => {
 
     return (
         <>
+            {/* {isLoading ? 'loading' : setActiveProducts(getCurrentProducts(0, itemsPerPage))} */}
             <Row className="justify-content-center products">{products}</Row>
             <Pagination
                 color="primary"
@@ -39,10 +48,17 @@ const ProductsList = ({ allProducts }) => {
         </>
     )
 }
-const mapStateToProps = (globalState) => ({ allProducts: globalState.products.allProducts })
-
+const mapStateToProps = (globalState) => (
+    {
+        allProducts: globalState.products.allProducts,
+        isLoading: globalState.products.isLoading
+    }
+)
+const mapDispatchToProps = (dispatch) => ({
+    fetchProductsData: () => dispatch(fetchProductsData())
+})
 ProductsList.propTypes = {
     allProducts: PropTypes.array.isRequired
 }
 
-export default connect(mapStateToProps, {})(ProductsList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList)
