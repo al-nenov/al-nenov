@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './root-saga'
 
 import { productsReducer } from './products/products.reducer'
 import { userReducer } from './user/user.reducer'
@@ -27,8 +28,12 @@ const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__
     ? window.__REDUX_DEVTOOLS_EXTENSION__()
     : (f) => f
 
+const sagaMiddleware = createSagaMiddleware()
+
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-const store = createStore(persistedReducer, compose(applyMiddleware(thunk), reduxDevtools))
+const store = createStore(persistedReducer, compose(applyMiddleware(sagaMiddleware), reduxDevtools))
 const persistor = persistStore(store)
+
+sagaMiddleware.run(rootSaga)
 
 export { store, persistor }

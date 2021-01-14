@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import { Card, Button } from 'react-bootstrap'
 import ProductPrice from '../product/product-price.component'
 import StripeCheckoutButton from '../stripe-button/stripe-button.component'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const CheckoutTotals = ({ total }) => {
-    const dispatch = useDispatch()
     const loggedIn = useSelector((state) => state.userAuth.currentUser)
 
     const handleClick = () => {

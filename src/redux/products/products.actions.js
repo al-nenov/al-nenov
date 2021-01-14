@@ -1,5 +1,4 @@
 import { PRODUCT_TYPES } from './products.types'
-import { firestore } from '../../firebase/firebase.app'
 
 export const startFetchingProducts = () => ({
     type: PRODUCT_TYPES.FETCH_PRODUCTS_START
@@ -10,13 +9,7 @@ export const successFetchingProducts = (products) => ({
     payload: products
 })
 
-export const fetchProductsData = () => {
-    return (dispatch) => {
-        dispatch(startFetchingProducts())
-        const productsRef = firestore.collection('products')
-        productsRef.get().then((snapshot) => {
-            const productDocs = snapshot.docs.map((item) => item.data())
-            dispatch(successFetchingProducts(productDocs))
-        })
-    }
-}
+export const errorFetchingProducts = (error) => ({
+    type: PRODUCT_TYPES.FETCH_PRODUCTS_ERROR,
+    payload: error
+})

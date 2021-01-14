@@ -7,18 +7,16 @@ import Pagination from '@material-ui/lab/Pagination'
 
 import Product from './product-item.component'
 
-import { fetchProductsData } from '../../redux/products/products.actions'
+import { startFetchingProducts } from '../../redux/products/products.actions'
 
-const ProductsList = ({ allProducts, fetchProductsData, isLoading }) => {
+const ProductsList = ({ allProducts, fetchProducts, isLoading }) => {
     const itemsPerPage = 6
     const [activePage, setActivePage] = useState(1)
     const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0, itemsPerPage))
 
     useEffect(() => {
-        fetchProductsData()
-        
+        fetchProducts()
     }, [])
-
 
     function getCurrentProducts(firstProduct, lastProduct) {
         return allProducts.slice(firstProduct, lastProduct)
@@ -48,14 +46,12 @@ const ProductsList = ({ allProducts, fetchProductsData, isLoading }) => {
         </>
     )
 }
-const mapStateToProps = (globalState) => (
-    {
-        allProducts: globalState.products.allProducts,
-        isLoading: globalState.products.isLoading
-    }
-)
+const mapStateToProps = (globalState) => ({
+    allProducts: globalState.products.allProducts,
+    isLoading: globalState.products.isLoading
+})
 const mapDispatchToProps = (dispatch) => ({
-    fetchProductsData: () => dispatch(fetchProductsData())
+    fetchProducts: () => dispatch(startFetchingProducts())
 })
 ProductsList.propTypes = {
     allProducts: PropTypes.array.isRequired

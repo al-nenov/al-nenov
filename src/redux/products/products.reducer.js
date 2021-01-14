@@ -1,13 +1,12 @@
-import Products from '../../products/products.json'
 import { PRODUCT_TYPES } from './products.types'
 
-const initalState = {
+const INITIAL_STATE = {
     allProducts: [],
     isLoading: false,
     error: null
 }
 
-const productsReducer = (state = initalState, action) => {
+const productsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case PRODUCT_TYPES.FETCH_PRODUCTS_START:
             return {
