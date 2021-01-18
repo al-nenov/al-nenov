@@ -10,10 +10,13 @@ const About = () => (
                 master the React and Redux foundations.
             </p>
             <p>
-                The app uses localStorage to store and read any user information. If any conflict is
-                caused by already stored data you can clear localStorage or open the app in
-                incognito mode
+                <del>
+                    The app uses localStorage to store and read any user information. If any
+                    conflict is caused by already stored data you can clear localStorage or open the
+                    app in incognito mode
+                </del>
             </p>
+            <p>The authentication and products data is stored on firebase</p>
         </section>
 
         <section>
@@ -26,7 +29,9 @@ const About = () => (
                 <li>Add products to Cart</li>
                 <li>Remove products from cart</li>
                 <li>Empty cart</li>
-                <li>Complete order *</li>
+                <li>
+                    <del>Complete order *</del>
+                </li>
                 <li>
                     See your orders and favourited products in your{' '}
                     <Link to="/dashboard">dashboard</Link> *
@@ -64,12 +69,23 @@ const About = () => (
                 <li>Redux</li>
                 <ul>
                     <li>
+                        <del>
+                            <a
+                                href="https://www.npmjs.com/package/redux-thunk"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Thunk
+                            </a>
+                        </del>
+                    </li>
+                    <li>
                         <a
-                            href="https://www.npmjs.com/package/redux-thunk"
+                            href="https://redux-saga.js.org/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Thunk
+                            Redux-Saga
                         </a>
                     </li>
                     <li>
@@ -82,6 +98,16 @@ const About = () => (
                         </a>
                     </li>
                 </ul>
+
+                <li>
+                    <a
+                        href="https://firebase.google.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Firebase
+                    </a>
+                </li>
                 <li>
                     <a
                         href="https://www.npmjs.com/package/react-router-dom"
@@ -109,15 +135,18 @@ const About = () => (
                         React Hook Form
                     </a>
                 </li>
-                <li>
-                    <a
-                        href="https://www.npmjs.com/package/react-js-pagination"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        React js pagination
-                    </a>
-                </li>
+
+                <del>
+                    <li>
+                        <a
+                            href="https://www.npmjs.com/package/react-js-pagination"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            React js pagination
+                        </a>
+                    </li>
+                </del>
                 <li>
                     <a
                         href="https://www.npmjs.com/package/react-bootstrap"
@@ -125,6 +154,12 @@ const About = () => (
                         rel="noopener noreferrer"
                     >
                         React Bootstrap
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">
+                        Material-UI
                     </a>
                 </li>
                 <li>
