@@ -12,17 +12,20 @@ import { startFetchingProducts } from '../../redux/products/products.actions'
 const ProductsList = ({ allProducts, fetchProducts, isLoading }) => {
     const itemsPerPage = 6
     const [activePage, setActivePage] = useState(1)
-    const [activeProducts, setActiveProducts] = useState(getCurrentProducts(0, itemsPerPage))
+    const [activeProducts, setActiveProducts] = useState({
+        firstProduct: 0,
+        lastProduct: itemsPerPage
+    })
 
     useEffect(() => {
         fetchProducts()
     }, [])
 
-    function getCurrentProducts(firstProduct, lastProduct) {
-        return allProducts.slice(firstProduct, lastProduct)
+    function getCurrentProducts() {
+        return allProducts.slice(activeProducts.firstProduct, activeProducts.lastProduct)
     }
 
-    const products = activeProducts.map((product) => {
+    const products = getCurrentProducts().map((product) => {
         return <Product key={product.id} {...product} />
     })
 
@@ -30,13 +33,12 @@ const ProductsList = ({ allProducts, fetchProducts, isLoading }) => {
         setActivePage(pageNumber)
         const lastProduct = pageNumber * itemsPerPage
         const firstProduct = lastProduct - itemsPerPage
-        setActiveProducts(getCurrentProducts(firstProduct, lastProduct))
+        setActiveProducts({firstProduct, lastProduct})
     }
 
     return (
         <>
-            {/* {isLoading ? 'loading' : setActiveProducts(getCurrentProducts(0, itemsPerPage))} */}
-            <Row className="justify-content-center products">{products}</Row>
+            <Row className="justify-content-center products">{isLoading ? 'Loading...' : products}</Row>
             <Pagination
                 color="primary"
                 page={activePage}

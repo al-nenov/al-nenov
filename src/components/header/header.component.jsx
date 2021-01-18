@@ -52,7 +52,7 @@ const Header = () => {
                         {auth && log_Out}
                         {auth ? (
                             <Navbar.Text>
-                                Signed in as: <Link to="/dashboard">{auth.displayName}</Link>
+                                Signed in as: <Link to="/dashboard">{auth.displayName || auth.email}</Link>
                             </Navbar.Text>
                         ) : (
                             log_In

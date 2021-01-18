@@ -16,7 +16,6 @@ const Main = () => {
     const user = useSelector((state) => state.userAuth.currentUser)
     return (
         <Container className="p-4">
-            <h3>Version 2.0</h3>
             <Switch>
                 <Route exact path="/" component={ProductsList} />
                 <Route path="/about" component={About} />
