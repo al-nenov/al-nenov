@@ -92,7 +92,7 @@ const Login = () => {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="/signup" variant="body2">
+                            <Link href="signup" variant="body2">
                                 Don't have an account? Signup here
                             </Link>
                         </Grid>
