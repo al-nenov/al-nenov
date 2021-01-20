@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import { useStyles } from './signup-page.styles'
 import { FormHelperText } from '@material-ui/core'
+import { Link as RouterLink } from 'react-router-dom';
 
 const Signup = () => {
     const classes = useStyles()
@@ -105,7 +106,7 @@ const Signup = () => {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="login" variant="body2">
+                            <Link component={RouterLink} to="/login" variant="body2">
                                 Already have an account? Sign in
                             </Link>
                         </Grid>
